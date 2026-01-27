@@ -70,121 +70,17 @@ import ootyImg from "../assets/ooty.jpg";
 import kanyakumariImg from "../assets/kanyakumari.jpg";
 import kodaikanalImg from "../assets/kodaikanal.jpg";
 import marinaBeachImg from "../assets/marina-beach.jpg";
-import hampiImg from "../assets/bali.jpg"; // Using bali as placeholder
+import hampiImg from "../assets/bali.jpg";
 import munnarImg from "../assets/kerala.jpg";
-import amritsarImg from "../assets/kyoto.jpg"; // Placeholder
-import rishikeshImg from "../assets/bali.jpg"; // Placeholder
-import bengaluruImg from "../assets/kyoto.jpg"; // Placeholder
+import amritsarImg from "../assets/kyoto.jpg";
+import rishikeshImg from "../assets/bali.jpg";
+import bengaluruImg from "../assets/kyoto.jpg";
 import chennaiImg from "../assets/marina-beach.jpg";
-import pondicherryImg from "../assets/santorini.jpg"; // Placeholder
+import pondicherryImg from "../assets/santorini.jpg";
 import kochiImg from "../assets/kerala.jpg";
 import kanyakumariBeachImg from "../assets/kanyakumari.jpg";
 
 export const MOCK_DESTINATIONS: Destination[] = [
-  {
-    id: "17",
-    name: "Pondicherry",
-    state: "Puducherry",
-    location: "Pondicherry, India",
-    category: "Beach",
-    shortDesc: "The French Riviera of the East with serene beaches.",
-    fullDesc: "Pondicherry is a charming coastal town that blends French colonial heritage with spiritual tranquility. Its cobblestone streets, vibrant architecture, and pristine beaches make it a unique getaway.",
-    bestTime: "October to March",
-    climate: "Tropical; humid but pleasant during winters.",
-    travelTips: "Rent a bicycle to explore the White Town. Visit Auroville for a spiritual experience.",
-    rating: 4.8,
-    imageUrl: pondicherryImg,
-    galleryImages: [pondicherryImg, marinaBeachImg, goaImg],
-    pricePerPerson: 400,
-    reviews: [],
-    spots: [
-      { id: "s28", name: "Promenade Beach", description: "Iconic oceanfront walk with a statue of Mahatma Gandhi.", entryFee: "Free" },
-      { id: "s29", name: "Paradise Beach", description: "Accessible by boat, famous for its golden sands.", entryFee: "₹300 (Ferry)" },
-      { id: "s30", name: "Auroville", description: "Experimental township focused on human unity.", entryFee: "Free" }
-    ],
-    hotels: [
-      { id: "h19", name: "Palais de Mahe", location: "White Town", pricePerNight: 12000, rating: 5 },
-      { id: "h20", name: "Radisson Resort", location: "Manavala Nagar", pricePerNight: 9500, rating: 4.6 }
-    ]
-  },
-  {
-    id: "18",
-    name: "Kochi",
-    state: "Kerala",
-    location: "Kochi, India",
-    category: "Beach",
-    shortDesc: "Queen of the Arabian Sea with historic fishing nets.",
-    fullDesc: "Kochi is a historic port city known for its eclectic mix of cultures. Fort Kochi offers stunning beach views, colonial architecture, and the famous Chinese fishing nets.",
-    bestTime: "October to April",
-    climate: "Tropical; warm and humid year-round.",
-    travelTips: "Take a sunset cruise in the backwaters. Try the local seafood curry.",
-    rating: 4.7,
-    imageUrl: kochiImg,
-    galleryImages: [kochiImg, munnarImg, goaImg],
-    pricePerPerson: 380,
-    reviews: [],
-    spots: [
-      { id: "s31", name: "Fort Kochi Beach", description: "Famous for Chinese fishing nets and sunset views.", entryFee: "Free" },
-      { id: "s32", name: "Mattancherry Palace", description: "Portuguese palace featuring Hindu murals.", entryFee: "₹5" },
-      { id: "s33", name: "Cherai Beach", description: "Pristine beach perfect for swimming.", entryFee: "Free" }
-    ],
-    hotels: [
-      { id: "h21", name: "Brunton Boatyard", location: "Fort Kochi", pricePerNight: 18000, rating: 5 },
-      { id: "h22", name: "Casino Hotel", location: "Willingdon Island", pricePerNight: 7000, rating: 4.5 }
-    ]
-  },
-  {
-    id: "19",
-    name: "Kanyakumari",
-    state: "Tamil Nadu",
-    location: "Kanyakumari, India",
-    category: "Beach",
-    shortDesc: "The tip of India where three oceans meet.",
-    fullDesc: "Kanyakumari is the southernmost tip of mainland India. It is famous for its unique sunrises and sunsets over the confluence of the Arabian Sea, Bay of Bengal, and Indian Ocean.",
-    bestTime: "October to March",
-    climate: "Maritime tropical; pleasant breeze year-round.",
-    travelTips: "Visit the Vivekananda Rock Memorial by ferry. Watch the moonrise and sunset simultaneously on full moon days.",
-    rating: 4.6,
-    imageUrl: kanyakumariBeachImg,
-    galleryImages: [kanyakumariBeachImg, marinaBeachImg, maduraiImg],
-    pricePerPerson: 300,
-    reviews: [],
-    spots: [
-      { id: "s34", name: "Vivekananda Rock Memorial", description: "Monument built on a rock offshore.", entryFee: "₹50 + Ferry" },
-      { id: "s35", name: "Kanyakumari Beach", description: "Multicolor sands and stunning ocean views.", entryFee: "Free" },
-      { id: "s36", name: "Thiruvalluvar Statue", description: "Colossal 133ft stone statue of the Tamil poet.", entryFee: "Ferry required" }
-    ],
-    hotels: [
-      { id: "h23", name: "Sparsa Resort", location: "Beach Road", pricePerNight: 6500, rating: 4.5 },
-      { id: "h24", name: "Hotel Sea View", location: "East Car Street", pricePerNight: 4000, rating: 4.2 }
-    ]
-  },
-  {
-    id: "15",
-    name: "Bengaluru",
-    state: "Karnataka",
-    location: "Bengaluru, India",
-    category: "City",
-    shortDesc: "The Garden City and Silicon Valley of India.",
-    fullDesc: "Bengaluru is a vibrant metropolis known for its pleasant weather, lush parks, and booming tech industry. It offers a unique blend of historical charm and modern urban life.",
-    bestTime: "October to February",
-    climate: "Moderate climate; pleasant throughout the year.",
-    travelTips: "Expect heavy traffic during peak hours. Explore the local craft beer scene.",
-    rating: 4.5,
-    imageUrl: bengaluruImg,
-    galleryImages: [bengaluruImg, hampiImg, ootyImg],
-    pricePerPerson: 400,
-    reviews: [],
-    spots: [
-      { id: "s22", name: "Lalbagh Botanical Garden", description: "Historic garden with a glass house.", entryFee: "₹25" },
-      { id: "s23", name: "Bangalore Palace", description: "Tudor-style royal palace ruins.", entryFee: "₹230" },
-      { id: "s24", name: "Cubbon Park", description: "Lush green space in the heart of the city.", entryFee: "Free" }
-    ],
-    hotels: [
-      { id: "h15", name: "The Leela Palace", location: "Old Airport Road", pricePerNight: 15000, rating: 5 },
-      { id: "h16", name: "ITC Gardenia", location: "Residency Road", pricePerNight: 12000, rating: 4.8 }
-    ]
-  },
   {
     id: "16",
     name: "Chennai",
@@ -203,116 +99,16 @@ export const MOCK_DESTINATIONS: Destination[] = [
     reviews: [],
     spots: [
       { id: "s25", name: "Marina Beach", description: "One of the longest urban beaches in the world.", entryFee: "Free" },
+      { id: "s_chen_1", name: "Elliot’s Beach (Besant Nagar)", description: "A popular hangout spot for locals.", entryFee: "Free" },
       { id: "s26", name: "Kapaleeshwarar Temple", description: "Ancient Dravidian-style temple.", entryFee: "Free" },
-      { id: "s27", name: "Santhome Cathedral", description: "Historic church built over a saint's tomb.", entryFee: "Free" }
+      { id: "s_chen_2", name: "Fort St. George", description: "First English fortress in India.", entryFee: "₹5" },
+      { id: "s_chen_3", name: "Government Museum", description: "One of the oldest museums in India.", entryFee: "₹15" },
+      { id: "s27", name: "Santhome Basilica", description: "Historic church built over a saint's tomb.", entryFee: "Free" },
+      { id: "s_chen_4", name: "Guindy National Park", description: "One of the few national parks situated within a city.", entryFee: "₹20" }
     ],
     hotels: [
       { id: "h17", name: "ITC Grand Chola", location: "Guindy", pricePerNight: 14000, rating: 5 },
       { id: "h18", name: "Taj Fisherman's Cove", location: "Covelong", pricePerNight: 16000, rating: 4.9 }
-    ]
-  },
-  {
-    id: "13",
-    name: "Amritsar (Golden Temple)",
-    state: "Punjab",
-    location: "Amritsar, India",
-    category: "Religious",
-    shortDesc: "The spiritual and cultural center of the Sikh religion.",
-    fullDesc: "Amritsar is home to the spectacular Golden Temple, the holiest shrine of Sikhism. The city is also known for its rich history, vibrant culture, and delicious Punjabi cuisine.",
-    bestTime: "October to March",
-    climate: "Extremely hot summers and very cold winters.",
-    travelTips: "Cover your head before entering the Golden Temple complex. Don't miss the Beating Retreat ceremony at Wagah Border.",
-    rating: 4.9,
-    imageUrl: amritsarImg,
-    galleryImages: [amritsarImg, tajMahalImg, jaipurImg],
-    pricePerPerson: 250,
-    reviews: [],
-    spots: [
-      { id: "s16", name: "Golden Temple", description: "Iconic gilded Sikh shrine.", entryFee: "Free" },
-      { id: "s17", name: "Jallianwala Bagh", description: "Memorial of the 1919 massacre.", entryFee: "Free" },
-      { id: "s18", name: "Wagah Border", description: "Border crossing with a daily ceremonial parade.", entryFee: "Free" }
-    ],
-    hotels: [
-      { id: "h11", name: "Taj Swarna", location: "Basant Avenue", pricePerNight: 9000, rating: 5 },
-      { id: "h12", name: "Hyatt Regency", location: "GT Road", pricePerNight: 7500, rating: 4.5 }
-    ]
-  },
-  {
-    id: "14",
-    name: "Rishikesh",
-    state: "Uttarakhand",
-    location: "Rishikesh, India",
-    category: "Adventure",
-    shortDesc: "Yoga capital of the world and hub for river rafting.",
-    fullDesc: "Situated on the banks of the Ganges, Rishikesh is a spiritual town known for its numerous ashrams and yoga centers. It's also a premier destination for white-water rafting and trekking.",
-    bestTime: "March to May and September to November",
-    climate: "Temperate climate; pleasant throughout the year except peak winter.",
-    travelTips: "Attend the evening Ganga Aarti at Triveni Ghat. Respect local customs as it's a holy town.",
-    rating: 4.7,
-    imageUrl: rishikeshImg,
-    galleryImages: [rishikeshImg, ootyImg, munnarImg],
-    pricePerPerson: 350,
-    reviews: [],
-    spots: [
-      { id: "s19", name: "Laxman Jhula", description: "Iconic suspension bridge across the Ganges.", entryFee: "Free" },
-      { id: "s20", name: "Triveni Ghat", description: "Main bathing ghat and site of evening aarti.", entryFee: "Free" },
-      { id: "s21", name: "The Beatles Ashram", description: "Ruins of the ashram where the Beatles stayed.", entryFee: "₹150" }
-    ],
-    hotels: [
-      { id: "h13", name: "Aloha on the Ganges", location: "Tapovan", pricePerNight: 12000, rating: 4.8 },
-      { id: "h14", name: "Ananda in the Himalayas", location: "Narendra Nagar", pricePerNight: 45000, rating: 5 }
-    ]
-  },
-  {
-    id: "5",
-    name: "Agra (Taj Mahal)",
-    state: "Uttar Pradesh",
-    location: "Agra, India",
-    category: "Historical",
-    shortDesc: "Home to the world-famous symbol of love, the Taj Mahal.",
-    fullDesc: "Agra is a major tourist destination because of its many Mughal-era buildings, most notably the Taj Mahal, Agra Fort and Fatehpur Sikri, all three of which are UNESCO World Heritage Sites.",
-    bestTime: "October to March (Pleasant weather for sightseeing)",
-    climate: "Hot summers, chilly winters, and moderate monsoon.",
-    travelTips: "Visit Taj Mahal at sunrise for the best views and fewer crowds. Wear comfortable walking shoes.",
-    rating: 4.9,
-    imageUrl: tajMahalImg,
-    galleryImages: [tajMahalImg, jaipurImg, maduraiImg],
-    pricePerPerson: 500,
-    reviews: [],
-    spots: [
-      { id: "s1", name: "Taj Mahal", description: "Iconic white marble mausoleum.", entryFee: "₹50 (Indians), ₹1100 (Foreigners)" },
-      { id: "s2", name: "Agra Fort", description: "Historic fort that was the main residence of Mughals.", entryFee: "₹40" },
-      { id: "s3", name: "Mehtab Bagh", description: "Garden complex with a stunning view of the Taj.", entryFee: "₹25" }
-    ],
-    hotels: [
-      { id: "h1", name: "Oberoi Amarvilas", location: "Near Taj East Gate", pricePerNight: 25000, rating: 5 },
-      { id: "h2", name: "ITC Mughal", location: "Fatehabad Road", pricePerNight: 8000, rating: 4.5 }
-    ]
-  },
-  {
-    id: "8",
-    name: "Goa",
-    state: "Goa",
-    location: "Goa, India",
-    category: "Beach",
-    shortDesc: "The ultimate beach destination with vibrant nightlife.",
-    fullDesc: "Goa is India's smallest state and unlike any other, known for its endless beaches, stellar nightlife, and Portuguese-influenced architecture.",
-    bestTime: "November to February (Perfect beach weather)",
-    climate: "Tropical climate with high humidity throughout the year.",
-    travelTips: "Rent a scooter to explore North and South Goa at your own pace.",
-    rating: 4.6,
-    imageUrl: goaImg,
-    galleryImages: [goaImg, marinaBeachImg, baliImg],
-    pricePerPerson: 450,
-    reviews: [],
-    spots: [
-      { id: "s4", name: "Baga Beach", description: "Famous for water sports and nightlife.", entryFee: "Free" },
-      { id: "s5", name: "Fort Aguada", description: "17th-century Portuguese fort.", entryFee: "Free" },
-      { id: "s6", name: "Dudhsagar Falls", description: "Four-tiered waterfall on Mandovi River.", entryFee: "₹400 (Jeep Safari)" }
-    ],
-    hotels: [
-      { id: "h3", name: "Taj Exotica", location: "Benaulim", pricePerNight: 15000, rating: 5 },
-      { id: "h4", name: "Novotel Goa", location: "Candolim", pricePerNight: 7000, rating: 4 }
     ]
   },
   {
@@ -323,7 +119,7 @@ export const MOCK_DESTINATIONS: Destination[] = [
     category: "Religious",
     shortDesc: "The Athens of the East, famous for Meenakshi Amman Temple.",
     fullDesc: "Madurai is one of the oldest continuously inhabited cities in the world. It is built around the Meenakshi Amman Temple, which is a major pilgrimage site.",
-    bestTime: "October to March (Avoid the intense summer heat)",
+    bestTime: "October to March",
     climate: "Hot and semi-arid with a distinct monsoon season.",
     travelTips: "Visit the temple early in the morning or for the night ceremony.",
     rating: 4.9,
@@ -332,9 +128,11 @@ export const MOCK_DESTINATIONS: Destination[] = [
     pricePerPerson: 350,
     reviews: [],
     spots: [
-      { id: "s7", name: "Meenakshi Temple", description: "Dravidian architecture masterpiece.", entryFee: "Free" },
+      { id: "s7", name: "Meenakshi Amman Temple", description: "Dravidian architecture masterpiece.", entryFee: "Free" },
       { id: "s8", name: "Thirumalai Nayakkar Palace", description: "17th-century palace complex.", entryFee: "₹10" },
-      { id: "s9", name: "Gandhi Memorial Museum", description: "Museum dedicated to Mahatma Gandhi.", entryFee: "Free" }
+      { id: "s9", name: "Gandhi Memorial Museum", description: "Museum dedicated to Mahatma Gandhi.", entryFee: "Free" },
+      { id: "s_mad_1", name: "Alagar Kovil", description: "Ancient temple dedicated to Lord Vishnu.", entryFee: "Free" },
+      { id: "s_mad_2", name: "Vaigai River", description: "Life-giving river of the ancient city.", entryFee: "Free" }
     ],
     hotels: [
       { id: "h5", name: "Heritage Madurai", location: "Melakkal Main Road", pricePerNight: 6000, rating: 4.5 },
@@ -342,56 +140,377 @@ export const MOCK_DESTINATIONS: Destination[] = [
     ]
   },
   {
-    id: "11",
-    name: "Munnar",
-    state: "Kerala",
-    location: "Idukki, India",
-    category: "Hill Station",
-    shortDesc: "Emerald green tea plantations and rolling hills.",
-    fullDesc: "Munnar is a breathtaking hill station in the Western Ghats of Kerala. It was once the summer resort of the British government in South India.",
-    bestTime: "September to March",
-    climate: "Cool and pleasant year-round with heavy rains in monsoon.",
-    travelTips: "Carry a light jacket even in summer. Visit the Eravikulam National Park early.",
+    id: "20",
+    name: "Rameshwaram",
+    state: "Tamil Nadu",
+    location: "Rameshwaram, India",
+    category: "Religious",
+    shortDesc: "The holy island city known for its epic temples.",
+    fullDesc: "Rameshwaram is one of the Char Dham pilgrimage sites, located on Pamban Island.",
+    bestTime: "October to April",
+    climate: "Tropical; moderate throughout the year.",
+    travelTips: "Take a dip in the holy sea. Walk along the Pamban Bridge.",
     rating: 4.8,
-    imageUrl: munnarImg,
-    galleryImages: [munnarImg, ootyImg, kodaikanalImg],
-    pricePerPerson: 400,
-    reviews: [],
-    spots: [
-      { id: "s10", name: "Eravikulam National Park", description: "Home to the Nilgiri Tahr.", entryFee: "₹120" },
-      { id: "s11", name: "Tea Museum", description: "History of tea production in the region.", entryFee: "₹75" },
-      { id: "s12", name: "Mattupetty Dam", description: "Beautiful lake and masonry gravity dam.", entryFee: "₹10" }
-    ],
-    hotels: [
-      { id: "h7", name: "The Panoramic Getaway", location: "Chithirapuram", pricePerNight: 9000, rating: 5 },
-      { id: "h8", name: "Tea County", location: "Munnar Town", pricePerNight: 6500, rating: 4.2 }
-    ]
-  },
-  {
-    id: "12",
-    name: "Hampi",
-    state: "Karnataka",
-    location: "Vijayanagara, India",
-    category: "Historical",
-    shortDesc: "The forgotten empire of Vijayanagara ruins.",
-    fullDesc: "Hampi is a UNESCO World Heritage site featuring the ruins of the medieval Vijayanagara Empire. It is a surreal landscape of boulders and ancient temples.",
-    bestTime: "October to February",
-    climate: "Tropical; hot summers and pleasant winters.",
-    travelTips: "Rent a bicycle to explore the vast ruins. Cross the river to 'Hippie Island' for a different vibe.",
-    rating: 4.9,
-    imageUrl: hampiImg,
-    galleryImages: [hampiImg, mahabalipuramImg, tajMahalImg],
+    imageUrl: maduraiImg,
+    galleryImages: [maduraiImg, kanyakumariImg],
     pricePerPerson: 300,
     reviews: [],
     spots: [
-      { id: "s13", name: "Virupaksha Temple", description: "Functional 7th-century Hindu temple.", entryFee: "₹50" },
-      { id: "s14", name: "Vittala Temple", description: "Stone chariot and musical pillars.", entryFee: "₹40" },
-      { id: "s15", name: "Lotus Mahal", description: "Secular Indo-Islamic architecture.", entryFee: "Included in Hampi ticket" }
+      { id: "s_ram_1", name: "Ramanathaswamy Temple", description: "Famous for its corridor.", entryFee: "Free" },
+      { id: "s_ram_2", name: "Agni Theertham", description: "Holy sea.", entryFee: "Free" },
+      { id: "s_ram_3", name: "Dhanushkodi Beach", description: "Ghost town.", entryFee: "Free" },
+      { id: "s_ram_4", name: "Pamban Bridge", description: "Iconic bridge.", entryFee: "Free" },
+      { id: "s_ram_5", name: "Floating Stone Temple", description: "Floating stones.", entryFee: "Free" }
     ],
-    hotels: [
-      { id: "h9", name: "Evolve Back Hampi", location: "Kamalapura", pricePerNight: 30000, rating: 5 },
-      { id: "h10", name: "Heritage Resort Hampi", location: "Hospet", pricePerNight: 7500, rating: 4.5 }
-    ]
+    hotels: []
+  },
+  {
+    id: "7",
+    name: "Ooty",
+    state: "Tamil Nadu",
+    location: "Nilgiris, India",
+    category: "Hill Station",
+    shortDesc: "The Queen of Hill Stations.",
+    fullDesc: "Ooty is a popular hill station in the Blue Mountains of the Western Ghats.",
+    bestTime: "March to June",
+    climate: "Cool and pleasant.",
+    travelTips: "Book the toy train.",
+    rating: 4.7,
+    imageUrl: ootyImg,
+    galleryImages: [ootyImg, munnarImg],
+    pricePerPerson: 350,
+    reviews: [],
+    spots: [
+      { id: "s_ooty_1", name: "Ooty Botanical Garden", description: "Sprawling garden.", entryFee: "₹30" },
+      { id: "s_ooty_2", name: "Ooty Lake", description: "Artificial lake.", entryFee: "₹15" },
+      { id: "s_ooty_3", name: "Doddabetta Peak", description: "Highest point.", entryFee: "₹10" },
+      { id: "s_ooty_4", name: "Rose Garden", description: "Largest rose garden.", entryFee: "₹30" },
+      { id: "s_ooty_5", name: "Nilgiri Mountain Railway", description: "Toy train.", entryFee: "Varies" }
+    ],
+    hotels: []
+  },
+  {
+    id: "21",
+    name: "Kodaikanal",
+    state: "Tamil Nadu",
+    location: "Kodaikanal, India",
+    category: "Hill Station",
+    shortDesc: "The Princess of Hill Stations.",
+    fullDesc: "Kodaikanal is a serene hill station in the Palani Hills.",
+    bestTime: "April to June",
+    climate: "Cool temperate.",
+    travelTips: "Try local chocolates.",
+    rating: 4.7,
+    imageUrl: kodaikanalImg,
+    galleryImages: [kodaikanalImg, ootyImg],
+    pricePerPerson: 350,
+    reviews: [],
+    spots: [
+      { id: "s_kod_1", name: "Kodaikanal Lake", description: "Star-shaped lake.", entryFee: "Free" },
+      { id: "s_kod_2", name: "Coaker’s Walk", description: "Scenic path.", entryFee: "₹20" },
+      { id: "s_kod_3", name: "Pillar Rocks", description: "Giant rock pillars.", entryFee: "₹5" },
+      { id: "s_kod_4", name: "Bryant Park", description: "Botanical garden.", entryFee: "₹30" },
+      { id: "s_kod_5", name: "Silver Cascade Falls", description: "Waterfall.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "22",
+    name: "Tanjore",
+    state: "Tamil Nadu",
+    location: "Thanjavur, India",
+    category: "Historical",
+    shortDesc: "Cradle of Chola culture.",
+    fullDesc: "Thanjavur is famous for its Great Living Chola Temples.",
+    bestTime: "October to March",
+    climate: "Tropical.",
+    travelTips: "Buy dancing dolls.",
+    rating: 4.9,
+    imageUrl: mahabalipuramImg,
+    galleryImages: [mahabalipuramImg],
+    pricePerPerson: 250,
+    reviews: [],
+    spots: [
+      { id: "s_tan_1", name: "Brihadeeswarar Temple", description: "Masterpiece.", entryFee: "Free" },
+      { id: "s_tan_2", name: "Saraswathi Mahal Library", description: "Ancient library.", entryFee: "Free" },
+      { id: "s_tan_3", name: "Thanjavur Palace", description: "Royal residence.", entryFee: "₹50" },
+      { id: "s_tan_4", name: "Schwartz Church", description: "Historic church.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "9",
+    name: "Mahabalipuram",
+    state: "Tamil Nadu",
+    location: "Mahabalipuram, India",
+    category: "Historical",
+    shortDesc: "Ancient monolithic temples.",
+    fullDesc: "Mahabalipuram is famous for its rock-cut temples.",
+    bestTime: "October to March",
+    climate: "Maritime tropical.",
+    travelTips: "Try seafood.",
+    rating: 4.8,
+    imageUrl: mahabalipuramImg,
+    galleryImages: [mahabalipuramImg],
+    pricePerPerson: 300,
+    reviews: [],
+    spots: [
+      { id: "s_mah_1", name: "Shore Temple", description: "Iconic temple.", entryFee: "₹40" },
+      { id: "s_mah_2", name: "Pancha Rathas", description: "Monolithic temples.", entryFee: "Included" },
+      { id: "s_mah_3", name: "Arjuna’s Penance", description: "Rock relief.", entryFee: "Included" },
+      { id: "s_mah_4", name: "Mahabalipuram Beach", description: "Beautiful beach.", entryFee: "Free" },
+      { id: "s_mah_5", name: "Krishna’s Butter Ball", description: "Natural rock.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "23",
+    name: "Hogenakkal",
+    state: "Tamil Nadu",
+    location: "Dharmapuri, India",
+    category: "Nature",
+    shortDesc: "The Niagara of India.",
+    fullDesc: "Waterfalls on the Kaveri River.",
+    bestTime: "July to October",
+    climate: "Tropical.",
+    travelTips: "Negotiate coracle price.",
+    rating: 4.4,
+    imageUrl: keralaImg,
+    galleryImages: [keralaImg],
+    pricePerPerson: 200,
+    reviews: [],
+    spots: [
+      { id: "s_hog_1", name: "Hogenakkal Waterfalls", description: "Powerful falls.", entryFee: "Free" },
+      { id: "s_hog_2", name: "Coracle Boat Ride", description: "Basket boat.", entryFee: "₹750" },
+      { id: "s_hog_3", name: "Carbonite Rocks", description: "Old rocks.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "24",
+    name: "Coimbatore",
+    state: "Tamil Nadu",
+    location: "Coimbatore, India",
+    category: "City",
+    shortDesc: "Manchester of South India.",
+    fullDesc: "Major industrial hub at the foothills of Western Ghats.",
+    bestTime: "September to March",
+    climate: "Pleasant.",
+    travelTips: "Visit Isha Yoga.",
+    rating: 4.6,
+    imageUrl: munnarImg,
+    galleryImages: [munnarImg],
+    pricePerPerson: 300,
+    reviews: [],
+    spots: [
+      { id: "s_coi_1", name: "Marudamalai Temple", description: "Hilltop temple.", entryFee: "Free" },
+      { id: "s_coi_2", name: "Isha Yoga Center (Adiyogi Statue)", description: "Largest bust statue.", entryFee: "Free" },
+      { id: "s_coi_3", name: "Siruvani Waterfalls", description: "Beautiful falls.", entryFee: "₹50" },
+      { id: "s_coi_4", name: "Black Thunder Theme Park", description: "Water park.", entryFee: "₹800" }
+    ],
+    hotels: []
+  },
+  {
+    id: "25",
+    name: "Yercaud",
+    state: "Tamil Nadu",
+    location: "Salem, India",
+    category: "Hill Station",
+    shortDesc: "The Jewel of the South.",
+    fullDesc: "Hill station in the Shevaroy Hills.",
+    bestTime: "October to June",
+    climate: "Salubrious.",
+    travelTips: "Visit coffee estates.",
+    rating: 4.3,
+    imageUrl: ootyImg,
+    galleryImages: [ootyImg],
+    pricePerPerson: 250,
+    reviews: [],
+    spots: [
+      { id: "s_yer_1", name: "Yercaud Lake", description: "Emerald lake.", entryFee: "Free" },
+      { id: "s_yer_2", name: "Lady’s Seat", description: "Viewpoint.", entryFee: "Free" },
+      { id: "s_yer_3", name: "Pagoda Point", description: "Stone structures.", entryFee: "Free" },
+      { id: "s_yer_4", name: "Killiyur Falls", description: "Waterfall.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "26",
+    name: "Tiruvannamalai",
+    state: "Tamil Nadu",
+    location: "Tiruvannamalai, India",
+    category: "Religious",
+    shortDesc: "The city of eternal fire.",
+    fullDesc: "Sacred place centered around Arunachala hill.",
+    bestTime: "November to February",
+    climate: "Tropical.",
+    travelTips: "Do the Girivalam.",
+    rating: 4.9,
+    imageUrl: maduraiImg,
+    galleryImages: [maduraiImg],
+    pricePerPerson: 200,
+    reviews: [],
+    spots: [
+      { id: "s_tir_1", name: "Arunachaleswarar Temple", description: "Huge temple.", entryFee: "Free" },
+      { id: "s_tir_2", name: "Girivalam Path", description: "14km path.", entryFee: "Free" },
+      { id: "s_tir_3", name: "Skandashram", description: "Cave.", entryFee: "Free" },
+      { id: "s_tir_4", name: "Virupaksha Cave", description: "Meditation cave.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "19",
+    name: "Kanyakumari",
+    state: "Tamil Nadu",
+    location: "Kanyakumari, India",
+    category: "Beach",
+    shortDesc: "Tip of India where oceans meet.",
+    fullDesc: "Southernmost tip of mainland India.",
+    bestTime: "October to March",
+    climate: "Maritime tropical.",
+    travelTips: "Watch sunset and moonrise.",
+    rating: 4.6,
+    imageUrl: kanyakumariBeachImg,
+    galleryImages: [kanyakumariBeachImg],
+    pricePerPerson: 300,
+    reviews: [],
+    spots: [
+      { id: "s34", name: "Vivekananda Rock Memorial", description: "Monument offshore.", entryFee: "₹50" },
+      { id: "s35", name: "Thirumalluvar Statue", description: "Stone statue.", entryFee: "Ferry" },
+      { id: "s_kan_1", name: "Triveni Sangam", description: "Confluence of three seas.", entryFee: "Free" },
+      { id: "s_kan_2", name: "Sunset Point", description: "Breathtaking views.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "27",
+    name: "Theni",
+    state: "Tamil Nadu",
+    location: "Theni, India",
+    category: "Nature",
+    shortDesc: "The Cardamom City.",
+    fullDesc: "Valley city surrounded by Western Ghats.",
+    bestTime: "September to March",
+    climate: "Moderate.",
+    travelTips: "Explore tea estates.",
+    rating: 4.5,
+    imageUrl: keralaImg,
+    galleryImages: [keralaImg],
+    pricePerPerson: 300,
+    reviews: [],
+    spots: [
+      { id: "s_the_1", name: "Suruli Falls", description: "Cascading waterfall.", entryFee: "₹5" },
+      { id: "s_the_2", name: "Meghamalai", description: "Misty mountains.", entryFee: "Free" },
+      { id: "s_the_3", name: "Vaigai Dam", description: "Major dam.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "28",
+    name: "Valparai",
+    state: "Tamil Nadu",
+    location: "Valparai, India",
+    category: "Nature",
+    shortDesc: "The 7th Heaven.",
+    fullDesc: "Pristine hill station in Anaimalai Hills.",
+    bestTime: "September to March",
+    climate: "Cool temperate.",
+    travelTips: "Watch for elephants.",
+    rating: 4.8,
+    imageUrl: munnarImg,
+    galleryImages: [munnarImg],
+    pricePerPerson: 350,
+    reviews: [],
+    spots: [
+      { id: "s_val_1", name: "Tea Estates", description: "Green carpets.", entryFee: "Free" },
+      { id: "s_val_2", name: "Sholayar Dam", description: "High dam.", entryFee: "Free" },
+      { id: "s_val_3", name: "Aliyar Dam", description: "Reservoir.", entryFee: "Free" },
+      { id: "s_val_4", name: "Monkey Falls", description: "Waterfall.", entryFee: "₹30" }
+    ],
+    hotels: []
+  },
+  {
+    id: "15",
+    name: "Bengaluru",
+    state: "Karnataka",
+    location: "Bengaluru, India",
+    category: "City",
+    shortDesc: "Garden City & Silicon Valley.",
+    fullDesc: "Vibrant metropolis known for its tech and parks.",
+    bestTime: "October to February",
+    climate: "Moderate.",
+    travelTips: "Expect traffic.",
+    rating: 4.5,
+    imageUrl: bengaluruImg,
+    galleryImages: [bengaluruImg],
+    pricePerPerson: 400,
+    reviews: [],
+    spots: [
+      { id: "s22", name: "Lalbagh Botanical Garden", description: "Glass house.", entryFee: "₹25" },
+      { id: "s_ben_1", name: "Cubbon Park", description: "Lush space.", entryFee: "Free" },
+      { id: "s_ben_2", name: "Bangalore Palace", description: "Tudor-style.", entryFee: "₹230" },
+      { id: "s_ben_3", name: "Vidhana Soudha", description: "Legislature seat.", entryFee: "Free" },
+      { id: "s_ben_4", name: "Tipu Sultan’s Summer Palace", description: "Teak palace.", entryFee: "₹15" },
+      { id: "s_ben_5", name: "ISKCON Temple", description: "Spiritual center.", entryFee: "Free" },
+      { id: "s_ben_6", name: "Bull Temple", description: "Nandi temple.", entryFee: "Free" },
+      { id: "s_ben_7", name: "Visvesvaraya Museum", description: "Science museum.", entryFee: "₹75" },
+      { id: "s_ben_8", name: "National Gallery of Modern Art", description: "Art hub.", entryFee: "₹20" },
+      { id: "s_ben_9", name: "Karnataka Chitrakala Parishath", description: "Art college.", entryFee: "Free" },
+      { id: "s_ben_10", name: "Bannerghatta National Park", description: "Wildlife.", entryFee: "₹300" },
+      { id: "s_ben_11", name: "Nandi Hills", description: "Sunrise point.", entryFee: "Free" },
+      { id: "s_ben_12", name: "Turahalli Forest", description: "Nature park.", entryFee: "Free" },
+      { id: "s_ben_13", name: "Commercial Street", description: "Shopping.", entryFee: "Free" },
+      { id: "s_ben_14", name: "Brigade Road", description: "Entertainment.", entryFee: "Free" },
+      { id: "s_ben_15", name: "MG Road", description: "Heart of city.", entryFee: "Free" },
+      { id: "s_ben_16", name: "UB City", description: "Luxury mall.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "5",
+    name: "Agra",
+    state: "Uttar Pradesh",
+    location: "Agra, India",
+    category: "Historical",
+    shortDesc: "Home to the Taj Mahal.",
+    fullDesc: "Agra is famous for its Mughal-era architecture.",
+    bestTime: "October to March",
+    climate: "Hot summers, chilly winters.",
+    travelTips: "Visit at sunrise.",
+    rating: 4.9,
+    imageUrl: tajMahalImg,
+    galleryImages: [tajMahalImg],
+    pricePerPerson: 500,
+    reviews: [],
+    spots: [
+      { id: "s1", name: "Taj Mahal", description: "Mausoleum.", entryFee: "₹50" },
+      { id: "s2", name: "Agra Fort", description: "Fortress.", entryFee: "₹40" },
+      { id: "s3", name: "Mehtab Bagh", description: "Garden.", entryFee: "₹25" }
+    ],
+    hotels: []
+  },
+  {
+    id: "8",
+    name: "Goa",
+    state: "Goa",
+    location: "Goa, India",
+    category: "Beach",
+    shortDesc: "Vibrant nightlife and beaches.",
+    fullDesc: "India's smallest state known for its coast.",
+    bestTime: "November to February",
+    climate: "Tropical.",
+    travelTips: "Rent a scooter.",
+    rating: 4.6,
+    imageUrl: goaImg,
+    galleryImages: [goaImg],
+    pricePerPerson: 450,
+    reviews: [],
+    spots: [
+      { id: "s4", name: "Baga Beach", description: "Nightlife.", entryFee: "Free" },
+      { id: "s5", name: "Fort Aguada", description: "Portuguese fort.", entryFee: "Free" },
+      { id: "s6", name: "Dudhsagar Falls", description: "Waterfalls.", entryFee: "₹400" }
+    ],
+    hotels: []
   }
 ];
 
