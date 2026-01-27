@@ -31,7 +31,7 @@ export default function Home() {
   }, [destinations]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-colorful-gradient">
       <Navbar />
       
       <main className="flex-1">
