@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/destinations", label: "Destinations" }, // We'll just scroll to section or filter
+    { href: "/#destinations", label: "Destinations" },
     { href: "/about", label: "About" },
   ];
 
