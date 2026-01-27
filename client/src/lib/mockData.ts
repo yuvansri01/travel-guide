@@ -96,7 +96,10 @@ export const MOCK_DESTINATIONS: Destination[] = [
     imageUrl: chennaiImg,
     galleryImages: [chennaiImg, maduraiImg, mahabalipuramImg],
     pricePerPerson: 350,
-    reviews: [],
+    reviews: [
+      { id: "r1", destinationId: "16", userName: "Arun Kumar", rating: 5, comment: "Absolutely beautiful and clean - skip Goa and go to Chennai. Security and safety is their top priority. You will find many clean toilets.", date: "2024-01-15" },
+      { id: "r2", destinationId: "16", userName: "Priya S", rating: 4, comment: "Best place to hang out with friends and family. It's awesome place to visit in Chennai because its India's biggest beach", date: "2024-01-10" }
+    ],
     spots: [
       { id: "s25", name: "Marina Beach", description: "One of the longest urban beaches in the world.", entryFee: "Free" },
       { id: "s_chen_1", name: "Elliot’s Beach (Besant Nagar)", description: "A popular hangout spot for locals.", entryFee: "Free" },
@@ -126,7 +129,10 @@ export const MOCK_DESTINATIONS: Destination[] = [
     imageUrl: maduraiImg,
     galleryImages: [maduraiImg, mahabalipuramImg, tajMahalImg],
     pricePerPerson: 350,
-    reviews: [],
+    reviews: [
+      { id: "r3", destinationId: "10", userName: "Vicky K", rating: 5, comment: "One of the most magnificent temples in India. The intricate sculptures, colorful gopurams, and rich cultural heritage make the visit unforgettable.", date: "2024-01-20" },
+      { id: "r4", destinationId: "10", userName: "Alex T", rating: 5, comment: "Meenakshi Amman Temple is truly breathtaking with its colourful gopurams, detailed sculptures and vibrant atmosphere.", date: "2024-01-18" }
+    ],
     spots: [
       { id: "s7", name: "Meenakshi Amman Temple", description: "Dravidian architecture masterpiece.", entryFee: "Free" },
       { id: "s8", name: "Thirumalai Nayakkar Palace", description: "17th-century palace complex.", entryFee: "₹10" },
@@ -138,6 +144,72 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "h5", name: "Heritage Madurai", location: "Melakkal Main Road", pricePerNight: 6000, rating: 4.5 },
       { id: "h6", name: "The Gateway Hotel", location: "Pasumalai", pricePerNight: 5500, rating: 4 }
     ]
+  },
+  {
+    id: "15",
+    name: "Bengaluru",
+    state: "Karnataka",
+    location: "Bengaluru, India",
+    category: "City",
+    shortDesc: "Garden City & Silicon Valley.",
+    fullDesc: "Vibrant metropolis known for its tech and parks.",
+    bestTime: "October to February",
+    climate: "Moderate.",
+    travelTips: "Expect traffic.",
+    rating: 4.5,
+    imageUrl: bengaluruImg,
+    galleryImages: [bengaluruImg],
+    pricePerPerson: 400,
+    reviews: [
+      { id: "r5", destinationId: "15", userName: "Suresh M", rating: 4, comment: "Nice place to visit one time. Architecture of the palace is awesome and the Palace has beautifully designed. There are beautiful paintings on the ceiling.", date: "2024-01-22" }
+    ],
+    spots: [
+      { id: "s22", name: "Lalbagh Botanical Garden", description: "Glass house.", entryFee: "₹25" },
+      { id: "s_ben_1", name: "Cubbon Park", description: "Lush space.", entryFee: "Free" },
+      { id: "s_ben_2", name: "Bangalore Palace", description: "Tudor-style.", entryFee: "₹230" },
+      { id: "s_ben_3", name: "Vidhana Soudha", description: "Legislature seat.", entryFee: "Free" },
+      { id: "s_ben_4", name: "Tipu Sultan’s Summer Palace", description: "Teak palace.", entryFee: "₹15" },
+      { id: "s_ben_5", name: "ISKCON Temple", description: "Spiritual center.", entryFee: "Free" },
+      { id: "s_ben_6", name: "Bull Temple", description: "Nandi temple.", entryFee: "Free" },
+      { id: "s_ben_7", name: "Visvesvaraya Museum", description: "Science museum.", entryFee: "₹75" },
+      { id: "s_ben_8", name: "National Gallery of Modern Art", description: "Art hub.", entryFee: "₹20" },
+      { id: "s_ben_9", name: "Karnataka Chitrakala Parishath", description: "Art college.", entryFee: "Free" },
+      { id: "s_ben_10", name: "Bannerghatta National Park", description: "Wildlife.", entryFee: "₹300" },
+      { id: "s_ben_11", name: "Nandi Hills", description: "Sunrise point.", entryFee: "Free" },
+      { id: "s_ben_12", name: "Turahalli Forest", description: "Nature park.", entryFee: "Free" },
+      { id: "s_ben_13", name: "Commercial Street", description: "Shopping.", entryFee: "Free" },
+      { id: "s_ben_14", name: "Brigade Road", description: "Entertainment.", entryFee: "Free" },
+      { id: "s_ben_15", name: "MG Road", description: "Heart of city.", entryFee: "Free" },
+      { id: "s_ben_16", name: "UB City", description: "Luxury mall.", entryFee: "Free" }
+    ],
+    hotels: []
+  },
+  {
+    id: "7",
+    name: "Ooty",
+    state: "Tamil Nadu",
+    location: "Nilgiris, India",
+    category: "Hill Station",
+    shortDesc: "The Queen of Hill Stations.",
+    fullDesc: "Ooty is a popular hill station in the Blue Mountains of the Western Ghats.",
+    bestTime: "March to June",
+    climate: "Cool and pleasant.",
+    travelTips: "Book the toy train.",
+    rating: 4.7,
+    imageUrl: ootyImg,
+    galleryImages: [ootyImg, munnarImg],
+    pricePerPerson: 350,
+    reviews: [
+      { id: "r6", destinationId: "7", userName: "Lakshmi", rating: 5, comment: "The Ooty Government Botanical Garden is a must-visit for nature lovers! It's spread over a vast area, the garden is beautifully maintained with a huge variety of flowers.", date: "2024-01-25" }
+    ],
+    spots: [
+      { id: "s_ooty_1", name: "Ooty Botanical Garden", description: "Sprawling garden.", entryFee: "₹30" },
+      { id: "s_ooty_2", name: "Ooty Lake", description: "Artificial lake.", entryFee: "₹15" },
+      { id: "s_ooty_3", name: "Doddabetta Peak", description: "Highest point.", entryFee: "₹10" },
+      { id: "s_ooty_4", name: "Rose Garden", description: "Largest rose garden.", entryFee: "₹30" },
+      { id: "s_ooty_5", name: "Nilgiri Mountain Railway", description: "Toy train.", entryFee: "Varies" }
+    ],
+    hotels: []
   },
   {
     id: "20",
@@ -161,31 +233,6 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "s_ram_3", name: "Dhanushkodi Beach", description: "Ghost town.", entryFee: "Free" },
       { id: "s_ram_4", name: "Pamban Bridge", description: "Iconic bridge.", entryFee: "Free" },
       { id: "s_ram_5", name: "Floating Stone Temple", description: "Floating stones.", entryFee: "Free" }
-    ],
-    hotels: []
-  },
-  {
-    id: "7",
-    name: "Ooty",
-    state: "Tamil Nadu",
-    location: "Nilgiris, India",
-    category: "Hill Station",
-    shortDesc: "The Queen of Hill Stations.",
-    fullDesc: "Ooty is a popular hill station in the Blue Mountains of the Western Ghats.",
-    bestTime: "March to June",
-    climate: "Cool and pleasant.",
-    travelTips: "Book the toy train.",
-    rating: 4.7,
-    imageUrl: ootyImg,
-    galleryImages: [ootyImg, munnarImg],
-    pricePerPerson: 350,
-    reviews: [],
-    spots: [
-      { id: "s_ooty_1", name: "Ooty Botanical Garden", description: "Sprawling garden.", entryFee: "₹30" },
-      { id: "s_ooty_2", name: "Ooty Lake", description: "Artificial lake.", entryFee: "₹15" },
-      { id: "s_ooty_3", name: "Doddabetta Peak", description: "Highest point.", entryFee: "₹10" },
-      { id: "s_ooty_4", name: "Rose Garden", description: "Largest rose garden.", entryFee: "₹30" },
-      { id: "s_ooty_5", name: "Nilgiri Mountain Railway", description: "Toy train.", entryFee: "Varies" }
     ],
     hotels: []
   },
@@ -426,43 +473,6 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "s_val_2", name: "Sholayar Dam", description: "High dam.", entryFee: "Free" },
       { id: "s_val_3", name: "Aliyar Dam", description: "Reservoir.", entryFee: "Free" },
       { id: "s_val_4", name: "Monkey Falls", description: "Waterfall.", entryFee: "₹30" }
-    ],
-    hotels: []
-  },
-  {
-    id: "15",
-    name: "Bengaluru",
-    state: "Karnataka",
-    location: "Bengaluru, India",
-    category: "City",
-    shortDesc: "Garden City & Silicon Valley.",
-    fullDesc: "Vibrant metropolis known for its tech and parks.",
-    bestTime: "October to February",
-    climate: "Moderate.",
-    travelTips: "Expect traffic.",
-    rating: 4.5,
-    imageUrl: bengaluruImg,
-    galleryImages: [bengaluruImg],
-    pricePerPerson: 400,
-    reviews: [],
-    spots: [
-      { id: "s22", name: "Lalbagh Botanical Garden", description: "Glass house.", entryFee: "₹25" },
-      { id: "s_ben_1", name: "Cubbon Park", description: "Lush space.", entryFee: "Free" },
-      { id: "s_ben_2", name: "Bangalore Palace", description: "Tudor-style.", entryFee: "₹230" },
-      { id: "s_ben_3", name: "Vidhana Soudha", description: "Legislature seat.", entryFee: "Free" },
-      { id: "s_ben_4", name: "Tipu Sultan’s Summer Palace", description: "Teak palace.", entryFee: "₹15" },
-      { id: "s_ben_5", name: "ISKCON Temple", description: "Spiritual center.", entryFee: "Free" },
-      { id: "s_ben_6", name: "Bull Temple", description: "Nandi temple.", entryFee: "Free" },
-      { id: "s_ben_7", name: "Visvesvaraya Museum", description: "Science museum.", entryFee: "₹75" },
-      { id: "s_ben_8", name: "National Gallery of Modern Art", description: "Art hub.", entryFee: "₹20" },
-      { id: "s_ben_9", name: "Karnataka Chitrakala Parishath", description: "Art college.", entryFee: "Free" },
-      { id: "s_ben_10", name: "Bannerghatta National Park", description: "Wildlife.", entryFee: "₹300" },
-      { id: "s_ben_11", name: "Nandi Hills", description: "Sunrise point.", entryFee: "Free" },
-      { id: "s_ben_12", name: "Turahalli Forest", description: "Nature park.", entryFee: "Free" },
-      { id: "s_ben_13", name: "Commercial Street", description: "Shopping.", entryFee: "Free" },
-      { id: "s_ben_14", name: "Brigade Road", description: "Entertainment.", entryFee: "Free" },
-      { id: "s_ben_15", name: "MG Road", description: "Heart of city.", entryFee: "Free" },
-      { id: "s_ben_16", name: "UB City", description: "Luxury mall.", entryFee: "Free" }
     ],
     hotels: []
   },
