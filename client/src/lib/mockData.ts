@@ -72,8 +72,62 @@ import kodaikanalImg from "../assets/kodaikanal.jpg";
 import marinaBeachImg from "../assets/marina-beach.jpg";
 import hampiImg from "../assets/bali.jpg"; // Using bali as placeholder
 import munnarImg from "../assets/kerala.jpg";
+import amritsarImg from "../assets/kyoto.jpg"; // Placeholder
+import rishikeshImg from "../assets/bali.jpg"; // Placeholder
 
 export const MOCK_DESTINATIONS: Destination[] = [
+  {
+    id: "13",
+    name: "Amritsar (Golden Temple)",
+    state: "Punjab",
+    location: "Amritsar, India",
+    category: "Religious",
+    shortDesc: "The spiritual and cultural center of the Sikh religion.",
+    fullDesc: "Amritsar is home to the spectacular Golden Temple, the holiest shrine of Sikhism. The city is also known for its rich history, vibrant culture, and delicious Punjabi cuisine.",
+    bestTime: "October to March",
+    climate: "Extremely hot summers and very cold winters.",
+    travelTips: "Cover your head before entering the Golden Temple complex. Don't miss the Beating Retreat ceremony at Wagah Border.",
+    rating: 4.9,
+    imageUrl: amritsarImg,
+    galleryImages: [amritsarImg, tajMahalImg, jaipurImg],
+    pricePerPerson: 250,
+    reviews: [],
+    spots: [
+      { id: "s16", name: "Golden Temple", description: "Iconic gilded Sikh shrine.", entryFee: "Free" },
+      { id: "s17", name: "Jallianwala Bagh", description: "Memorial of the 1919 massacre.", entryFee: "Free" },
+      { id: "s18", name: "Wagah Border", description: "Border crossing with a daily ceremonial parade.", entryFee: "Free" }
+    ],
+    hotels: [
+      { id: "h11", name: "Taj Swarna", location: "Basant Avenue", pricePerNight: 9000, rating: 5 },
+      { id: "h12", name: "Hyatt Regency", location: "GT Road", pricePerNight: 7500, rating: 4.5 }
+    ]
+  },
+  {
+    id: "14",
+    name: "Rishikesh",
+    state: "Uttarakhand",
+    location: "Rishikesh, India",
+    category: "Adventure",
+    shortDesc: "Yoga capital of the world and hub for river rafting.",
+    fullDesc: "Situated on the banks of the Ganges, Rishikesh is a spiritual town known for its numerous ashrams and yoga centers. It's also a premier destination for white-water rafting and trekking.",
+    bestTime: "March to May and September to November",
+    climate: "Temperate climate; pleasant throughout the year except peak winter.",
+    travelTips: "Attend the evening Ganga Aarti at Triveni Ghat. Respect local customs as it's a holy town.",
+    rating: 4.7,
+    imageUrl: rishikeshImg,
+    galleryImages: [rishikeshImg, ootyImg, munnarImg],
+    pricePerPerson: 350,
+    reviews: [],
+    spots: [
+      { id: "s19", name: "Laxman Jhula", description: "Iconic suspension bridge across the Ganges.", entryFee: "Free" },
+      { id: "s20", name: "Triveni Ghat", description: "Main bathing ghat and site of evening aarti.", entryFee: "Free" },
+      { id: "s21", name: "The Beatles Ashram", description: "Ruins of the ashram where the Beatles stayed.", entryFee: "₹150" }
+    ],
+    hotels: [
+      { id: "h13", name: "Aloha on the Ganges", location: "Tapovan", pricePerNight: 12000, rating: 4.8 },
+      { id: "h14", name: "Ananda in the Himalayas", location: "Narendra Nagar", pricePerNight: 45000, rating: 5 }
+    ]
+  },
   {
     id: "5",
     name: "Agra (Taj Mahal)",
