@@ -74,8 +74,62 @@ import hampiImg from "../assets/bali.jpg"; // Using bali as placeholder
 import munnarImg from "../assets/kerala.jpg";
 import amritsarImg from "../assets/kyoto.jpg"; // Placeholder
 import rishikeshImg from "../assets/bali.jpg"; // Placeholder
+import bengaluruImg from "../assets/kyoto.jpg"; // Placeholder
+import chennaiImg from "../assets/marina-beach.jpg";
 
 export const MOCK_DESTINATIONS: Destination[] = [
+  {
+    id: "15",
+    name: "Bengaluru",
+    state: "Karnataka",
+    location: "Bengaluru, India",
+    category: "City",
+    shortDesc: "The Garden City and Silicon Valley of India.",
+    fullDesc: "Bengaluru is a vibrant metropolis known for its pleasant weather, lush parks, and booming tech industry. It offers a unique blend of historical charm and modern urban life.",
+    bestTime: "October to February",
+    climate: "Moderate climate; pleasant throughout the year.",
+    travelTips: "Expect heavy traffic during peak hours. Explore the local craft beer scene.",
+    rating: 4.5,
+    imageUrl: bengaluruImg,
+    galleryImages: [bengaluruImg, hampiImg, ootyImg],
+    pricePerPerson: 400,
+    reviews: [],
+    spots: [
+      { id: "s22", name: "Lalbagh Botanical Garden", description: "Historic garden with a glass house.", entryFee: "₹25" },
+      { id: "s23", name: "Bangalore Palace", description: "Tudor-style royal palace ruins.", entryFee: "₹230" },
+      { id: "s24", name: "Cubbon Park", description: "Lush green space in the heart of the city.", entryFee: "Free" }
+    ],
+    hotels: [
+      { id: "h15", name: "The Leela Palace", location: "Old Airport Road", pricePerNight: 15000, rating: 5 },
+      { id: "h16", name: "ITC Gardenia", location: "Residency Road", pricePerNight: 12000, rating: 4.8 }
+    ]
+  },
+  {
+    id: "16",
+    name: "Chennai",
+    state: "Tamil Nadu",
+    location: "Chennai, India",
+    category: "City",
+    shortDesc: "The Gateway to South India with rich heritage.",
+    fullDesc: "Chennai is a major cultural, economic, and educational center. It is famous for its classical music and dance, beautiful temples, and the sprawling Marina Beach.",
+    bestTime: "November to February",
+    climate: "Tropical maritime climate; hot and humid for most of the year.",
+    travelTips: "Visit Marina Beach during sunrise or sunset. Try the authentic filter coffee.",
+    rating: 4.4,
+    imageUrl: chennaiImg,
+    galleryImages: [chennaiImg, maduraiImg, mahabalipuramImg],
+    pricePerPerson: 350,
+    reviews: [],
+    spots: [
+      { id: "s25", name: "Marina Beach", description: "One of the longest urban beaches in the world.", entryFee: "Free" },
+      { id: "s26", name: "Kapaleeshwarar Temple", description: "Ancient Dravidian-style temple.", entryFee: "Free" },
+      { id: "s27", name: "Santhome Cathedral", description: "Historic church built over a saint's tomb.", entryFee: "Free" }
+    ],
+    hotels: [
+      { id: "h17", name: "ITC Grand Chola", location: "Guindy", pricePerNight: 14000, rating: 5 },
+      { id: "h18", name: "Taj Fisherman's Cove", location: "Covelong", pricePerNight: 16000, rating: 4.9 }
+    ]
+  },
   {
     id: "13",
     name: "Amritsar (Golden Temple)",
