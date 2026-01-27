@@ -1,5 +1,26 @@
 
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const { toast } = useToast();
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    // Simulate sending email/subscription
+    console.log(`Subscribing ${email} to Wanderlust newsletter`);
+    
+    toast({
+      title: "Subscription Successful!",
+      description: "Welcome to Wanderlust! We've sent a welcome guide to your email.",
+    });
+    
+    setEmail("");
+  };
+
   return (
     <footer className="bg-muted/30 border-t border-border mt-20">
       <div className="container mx-auto px-4 py-12">
@@ -24,7 +45,7 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
@@ -34,16 +55,22 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4">Newsletter</h4>
             <p className="text-sm text-muted-foreground mb-4">Subscribe for travel tips and exclusive offers.</p>
-            <div className="flex gap-2">
+            <form onSubmit={handleSubscribe} className="flex gap-2">
               <input 
                 type="email" 
                 placeholder="Email address" 
-                className="flex-1 h-9 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="flex-1 h-10 rounded-xl border border-input bg-white/50 backdrop-blur-sm px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               />
-              <button className="h-9 px-4 py-2 bg-primary text-primary-foreground shadow hover:bg-primary/90 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50">
+              <button 
+                type="submit"
+                className="h-10 px-4 py-2 bg-primary text-primary-foreground shadow-lg shadow-primary/20 inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-bold transition-all hover:bg-primary/90 active:scale-95"
+              >
                 Join
               </button>
-            </div>
+            </form>
           </div>
         </div>
         <div className="mt-12 pt-8 border-t border-border/50 text-center text-xs text-muted-foreground">
