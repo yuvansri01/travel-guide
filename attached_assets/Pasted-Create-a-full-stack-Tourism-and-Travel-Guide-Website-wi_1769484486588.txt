@@ -1,0 +1,66 @@
+Create a full-stack Tourism and Travel Guide Website with a clean UI and a working database.
+
+PROJECT REQUIREMENTS:
+
+1. TECHNOLOGY STACK
+- Frontend: HTML, CSS, JavaScript
+- Backend: Node.js with Express
+- Database: SQLite (or MySQL if supported)
+- Use simple, readable code with comments
+- Project must run fully inside Replit
+
+2. MODULES TO IMPLEMENT
+
+MODULE 1: Destination Information & Search Module
+- Create a database table for destinations with fields:
+  id, name, location, category, description, best_time, rating, image_url
+- Display a list of destinations on the homepage
+- Implement search functionality by destination name and location
+- Allow filtering by category (beach, hill station, historical, etc.)
+- Fetch destination data dynamically from the database
+
+MODULE 2: Booking, Reviews & Recommendation Module
+- Create database tables:
+  bookings (id, user_name, destination_id, travel_date, persons)
+  reviews (id, destination_id, user_name, rating, comment)
+- Allow users to book a destination using a form
+- Store booking data in the database
+- Allow users to submit reviews and ratings
+- Display reviews under each destination
+
+3. RECOMMENDATION LOGIC
+- Recommend top destinations based on:
+  - Highest average rating
+  - Most reviewed destinations
+- Display recommended destinations section on homepage
+
+4. BACKEND FUNCTIONALITY
+- Create REST APIs for:
+  - Fetching destinations
+  - Searching destinations
+  - Booking a destination
+  - Adding reviews
+  - Fetching recommendations
+- Use proper error handling and validation
+
+5. DATABASE
+- Automatically create tables if they don’t exist
+- Insert sample destination data on first run
+- Use SQL queries for CRUD operations
+
+6. UI REQUIREMENTS
+- Simple, professional layout
+- Responsive design
+- Clear navigation between pages
+- Forms with validation
+
+7. EXTRA REQUIREMENTS
+- Add comments explaining each file
+- Provide instructions to run the project in Replit
+- Keep code beginner-friendly and suitable for a capstone project
+
+OUTPUT EXPECTED:
+- Complete folder structure
+- Frontend + backend code
+- Database schema
+- Fully working application
