@@ -1,6 +1,6 @@
-import { useRoute, useLocation } from "wouter";
+import { useLocation } from "wouter";
 import { useState } from "react";
-import { Star, MapPin, Calendar, Users, ArrowLeft, Send } from "lucide-react";
+import { Star, MapPin, Calendar, Users, ArrowLeft, Hotel, Ticket, Info, History } from "lucide-react";
 import { db } from "@/lib/mockData";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -18,6 +18,8 @@ import {
 } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 export default function DestinationDetails({ params }: { params: { id: string } }) {
   const [, setLocation] = useLocation();
@@ -26,7 +28,9 @@ export default function DestinationDetails({ params }: { params: { id: string } 
   const destination = id ? db.getDestination(id) : null;
 
   // Booking Form State
-  const [bookingDate, setBookingDate] = useState("");
+  const [selectedHotel, setSelectedHotel] = useState<string>("");
+  const [checkIn, setCheckIn] = useState("");
+  const [checkOut, setCheckOut] = useState("");
   const [guests, setGuests] = useState(1);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,18 +54,20 @@ export default function DestinationDetails({ params }: { params: { id: string } 
     db.addBooking({
       id: Math.random().toString(),
       destinationId: destination.id,
+      hotelId: selectedHotel,
       userName,
       email,
-      travelDate: new Date(bookingDate),
+      checkIn,
+      checkOut,
       persons: guests,
     });
     toast({
-      title: "Booking Confirmed!",
-      description: `You have successfully booked a trip to ${destination.name}.`,
+      title: "Hotel Booked!",
+      description: `Your stay at ${destination.hotels.find(h => h.id === selectedHotel)?.name} is confirmed.`,
     });
     setUserName("");
     setEmail("");
-    setBookingDate("");
+    setSelectedHotel("");
   };
 
   const handleReview = (e: React.FormEvent) => {
@@ -88,7 +94,7 @@ export default function DestinationDetails({ params }: { params: { id: string } 
       <Navbar />
       
       {/* Hero Header */}
-      <div className="relative h-[50vh] min-h-[400px]">
+      <div className="relative h-[60vh] min-h-[500px]">
         <img
           src={destination.imageUrl}
           alt={destination.name}
@@ -101,199 +107,231 @@ export default function DestinationDetails({ params }: { params: { id: string } 
             className="text-white hover:bg-white/20 mb-6 pl-0 hover:pl-2 transition-all"
             onClick={() => setLocation("/")}
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Destinations
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Explorations
           </Button>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
-            <div>
-              <Badge className="mb-4 bg-accent text-white border-none text-sm px-3 py-1">
-                {destination.category}
-              </Badge>
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-2">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-2">
+              <div className="flex gap-2">
+                <Badge className="bg-accent text-white border-none">{destination.state}</Badge>
+                <Badge className="bg-primary/80 text-white border-none">{destination.category}</Badge>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-serif font-bold text-white leading-tight">
                 {destination.name}
               </h1>
               <div className="flex items-center gap-2 text-white/90 text-lg">
-                <MapPin className="h-5 w-5" />
+                <MapPin className="h-5 w-5 text-accent" />
                 <span>{destination.location}</span>
               </div>
             </div>
             <div className="flex flex-col items-start md:items-end">
-               <div className="flex items-center gap-1 mb-2 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full">
-                <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
-                <span className="text-xl font-bold text-white">{destination.rating}</span>
-                <span className="text-white/70 text-sm">({destination.reviews.length} reviews)</span>
+               <div className="flex items-center gap-1 mb-2 bg-white/20 backdrop-blur-xl px-4 py-2 rounded-full border border-white/30">
+                <Star className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                <span className="text-2xl font-bold text-white">{destination.rating}</span>
+                <span className="text-white/70 text-sm ml-1">({destination.reviews.length} reviews)</span>
               </div>
-              <p className="text-white/90 text-sm font-medium">
-                Best time to visit: <span className="text-white">{destination.bestTime}</span>
-              </p>
             </div>
           </div>
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Main Content */}
-          <div className="lg:col-span-2 space-y-12">
-            <section>
-              <h2 className="text-2xl font-serif font-bold mb-4">About this Destination</h2>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {destination.description}
-              </p>
-            </section>
+      <main className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="lg:col-span-8 space-y-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="bg-muted/30 border-none shadow-none">
+                <CardContent className="pt-6 flex flex-col items-center text-center">
+                  <Calendar className="h-8 w-8 text-primary mb-3" />
+                  <h4 className="font-bold mb-1">Best Time</h4>
+                  <p className="text-sm text-muted-foreground">{destination.bestTime}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-muted/30 border-none shadow-none">
+                <CardContent className="pt-6 flex flex-col items-center text-center">
+                  <Info className="h-8 w-8 text-primary mb-3" />
+                  <h4 className="font-bold mb-1">Climate</h4>
+                  <p className="text-sm text-muted-foreground">{destination.climate}</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-muted/30 border-none shadow-none">
+                <CardContent className="pt-6 flex flex-col items-center text-center">
+                  <History className="h-8 w-8 text-primary mb-3" />
+                  <h4 className="font-bold mb-1">Travel Tips</h4>
+                  <p className="text-sm text-muted-foreground">{destination.travelTips}</p>
+                </CardContent>
+              </Card>
+            </div>
 
-            <section>
-              <div className="flex items-center justify-between mb-6">
-                 <h2 className="text-2xl font-serif font-bold">Reviews</h2>
-                 <Button variant="outline" size="sm">Sort by Recent</Button>
-              </div>
+            <Tabs defaultValue="about" className="w-full">
+              <TabsList className="w-full justify-start border-b rounded-none h-auto bg-transparent p-0 gap-8 mb-8">
+                <TabsTrigger value="about" className="border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent rounded-none px-0 py-4 text-base font-serif">About</TabsTrigger>
+                <TabsTrigger value="spots" className="border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent rounded-none px-0 py-4 text-base font-serif">Major Spots</TabsTrigger>
+                <TabsTrigger value="gallery" className="border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent rounded-none px-0 py-4 text-base font-serif">Gallery</TabsTrigger>
+                <TabsTrigger value="reviews" className="border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent rounded-none px-0 py-4 text-base font-serif">Reviews</TabsTrigger>
+              </TabsList>
               
-              <div className="space-y-4">
-                {destination.reviews.length > 0 ? (
-                  destination.reviews.map((review) => (
-                    <ReviewCard key={review.id} review={review} />
-                  ))
-                ) : (
-                  <p className="text-muted-foreground italic">No reviews yet. Be the first to review!</p>
-                )}
-              </div>
+              <TabsContent value="about" className="space-y-6 animate-in fade-in slide-in-from-bottom-4">
+                <h2 className="text-3xl font-serif font-bold">Discover {destination.name}</h2>
+                <p className="text-muted-foreground leading-relaxed text-xl font-light">
+                  {destination.fullDesc}
+                </p>
+                <div className="bg-primary/5 p-8 rounded-2xl border border-primary/10">
+                  <h4 className="font-bold text-primary mb-2 italic">Expert Tip</h4>
+                  <p className="text-muted-foreground italic">"{destination.travelTips}"</p>
+                </div>
+              </TabsContent>
 
-              {/* Add Review Form */}
-              <div className="mt-10 bg-muted/30 p-6 rounded-xl border border-border">
-                <h3 className="text-lg font-bold mb-4">Leave a Review</h3>
-                <form onSubmit={handleReview} className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="reviewName">Your Name</Label>
-                      <Input 
-                        id="reviewName" 
-                        value={reviewName} 
-                        onChange={(e) => setReviewName(e.target.value)} 
-                        required 
-                        placeholder="John Doe"
-                      />
+              <TabsContent value="spots" className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+                <div className="grid gap-6">
+                  {destination.spots.map((spot) => (
+                    <Card key={spot.id} className="overflow-hidden border-border/50 hover:border-primary/50 transition-colors">
+                      <div className="p-6 flex flex-col md:flex-row gap-6">
+                        <div className="flex-1 space-y-2">
+                          <h4 className="text-xl font-bold font-serif">{spot.name}</h4>
+                          <p className="text-muted-foreground">{spot.description}</p>
+                          <div className="flex items-center gap-2 pt-2">
+                            <Ticket className="h-4 w-4 text-accent" />
+                            <span className="text-sm font-medium">Entry: {spot.entryFee}</span>
+                          </div>
+                        </div>
+                        <Button variant="outline" className="h-fit">View on Map</Button>
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="gallery" className="animate-in fade-in slide-in-from-bottom-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {destination.galleryImages.map((img, idx) => (
+                    <div key={idx} className="aspect-square rounded-xl overflow-hidden group">
+                      <img src={img} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt="Gallery" />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="rating">Rating (1-5)</Label>
-                      <Input 
-                        id="rating" 
-                        type="number" 
-                        min="1" 
-                        max="5" 
-                        value={reviewRating} 
-                        onChange={(e) => setReviewRating(Number(e.target.value))} 
-                        required 
-                      />
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="reviews" className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+                <div className="space-y-4">
+                  {destination.reviews.length > 0 ? (
+                    destination.reviews.map((review) => (
+                      <ReviewCard key={review.id} review={review} />
+                    ))
+                  ) : (
+                    <div className="text-center py-12 bg-muted/20 rounded-2xl border-2 border-dashed border-border">
+                      <p className="text-muted-foreground italic">Be the first to share your experience!</p>
                     </div>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="comment">Comment</Label>
-                    <Textarea 
-                      id="comment" 
-                      value={reviewComment} 
-                      onChange={(e) => setReviewComment(e.target.value)} 
-                      required 
-                      placeholder="Share your experience..."
-                      className="min-h-[100px]"
-                    />
-                  </div>
-                  <Button type="submit">Submit Review</Button>
-                </form>
-              </div>
-            </section>
+                  )}
+                </div>
+
+                <Card className="border-none shadow-none bg-muted/30">
+                  <CardHeader>
+                    <CardTitle className="font-serif">Write a Review</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <form onSubmit={handleReview} className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                          <Label>Your Name</Label>
+                          <Input value={reviewName} onChange={(e) => setReviewName(e.target.value)} required />
+                        </div>
+                        <div className="space-y-2">
+                          <Label>Rating</Label>
+                          <select className="w-full h-9 rounded-md border border-input bg-background px-3" value={reviewRating} onChange={(e) => setReviewRating(Number(e.target.value))}>
+                            {[5,4,3,2,1].map(n => <option key={n} value={n}>{n} Stars</option>)}
+                          </select>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        <Label>Comment</Label>
+                        <Textarea value={reviewComment} onChange={(e) => setReviewComment(e.target.value)} required placeholder="Tell us about your trip..." />
+                      </div>
+                      <Button type="submit" className="w-full md:w-auto">Submit Review</Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </TabsContent>
+            </Tabs>
           </div>
 
-          {/* Sidebar Booking Form */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-24 shadow-lg border-none bg-card/50 backdrop-blur-sm">
-              <CardHeader className="bg-primary text-primary-foreground rounded-t-xl p-6">
-                <CardTitle className="flex justify-between items-center text-xl">
-                  <span>Book your Trip</span>
-                  <span className="text-2xl font-bold">${destination.pricePerPerson} <span className="text-sm font-normal opacity-80">/ person</span></span>
-                </CardTitle>
-                <CardDescription className="text-primary-foreground/80">
-                  Reserve your spot now. No payment required today.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="p-6">
-                <form onSubmit={handleBooking} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="date">Travel Date</Label>
-                    <div className="relative">
-                      <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        id="date" 
-                        type="date" 
-                        className="pl-10"
-                        value={bookingDate}
-                        onChange={(e) => setBookingDate(e.target.value)}
-                        required
-                      />
+          <div className="lg:col-span-4">
+            <div className="sticky top-24 space-y-6">
+              <Card className="border-none shadow-2xl bg-card">
+                <CardHeader className="bg-primary text-primary-foreground rounded-t-xl py-8 text-center">
+                  <Hotel className="h-10 w-10 mx-auto mb-4 opacity-80" />
+                  <CardTitle className="text-3xl font-serif">Stay in {destination.name}</CardTitle>
+                  <CardDescription className="text-primary-foreground/70">Find and book your perfect hotel stay</CardDescription>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <form onSubmit={handleBooking} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label>Select Hotel</Label>
+                      <div className="grid gap-3">
+                        {destination.hotels.map((hotel) => (
+                          <div 
+                            key={hotel.id}
+                            onClick={() => setSelectedHotel(hotel.id)}
+                            className={cn(
+                              "p-4 rounded-xl border-2 cursor-pointer transition-all",
+                              selectedHotel === hotel.id ? "border-primary bg-primary/5" : "border-border hover:border-primary/30"
+                            )}
+                          >
+                            <div className="flex justify-between items-start">
+                              <div>
+                                <h5 className="font-bold">{hotel.name}</h5>
+                                <p className="text-xs text-muted-foreground">{hotel.location}</p>
+                              </div>
+                              <div className="text-right">
+                                <p className="font-bold text-primary">₹{hotel.pricePerNight}</p>
+                                <div className="flex items-center justify-end gap-1 text-[10px] text-yellow-600 font-bold">
+                                  <Star className="h-2 w-2 fill-yellow-600" />
+                                  {hotel.rating}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <Label htmlFor="guests">Guests</Label>
-                    <div className="relative">
-                      <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                      <Input 
-                        id="guests" 
-                        type="number" 
-                        min="1" 
-                        className="pl-10"
-                        value={guests}
-                        onChange={(e) => setGuests(Number(e.target.value))}
-                        required
-                      />
-                    </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Jane Smith"
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email Address</Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="jane@example.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                  </div>
-
-                  <div className="pt-4 space-y-4">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Price x {guests} guests</span>
-                      <span className="font-medium">${destination.pricePerPerson * guests}</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label>Check-In</Label>
+                        <Input type="date" value={checkIn} onChange={(e) => setCheckIn(e.target.value)} required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label>Check-Out</Label>
+                        <Input type="date" value={checkOut} onChange={(e) => setCheckOut(e.target.value)} required />
+                      </div>
                     </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Service fee</span>
-                      <span className="font-medium">$50</span>
-                    </div>
-                    <div className="flex justify-between font-bold text-lg pt-4 border-t border-border">
-                      <span>Total</span>
-                      <span>${destination.pricePerPerson * guests + 50}</span>
-                    </div>
-                  </div>
 
-                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-white mt-4 h-12 text-lg shadow-md">
-                    Confirm Booking
-                  </Button>
-                  <p className="text-xs text-center text-muted-foreground mt-2">
-                    You won't be charged yet.
-                  </p>
-                </form>
-              </CardContent>
-            </Card>
+                    <div className="space-y-2">
+                      <Label>Guests</Label>
+                      <Input type="number" min="1" value={guests} onChange={(e) => setGuests(Number(e.target.value))} required />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label>Full Name</Label>
+                      <Input placeholder="John Doe" value={userName} onChange={(e) => setUserName(e.target.value)} required />
+                    </div>
+
+                    <Button type="submit" disabled={!selectedHotel} className="w-full h-14 text-lg bg-accent hover:bg-accent/90 shadow-lg shadow-accent/20 rounded-xl font-bold">
+                      Confirm Hotel Booking
+                    </Button>
+                    <p className="text-center text-xs text-muted-foreground">Free cancellation up to 24h before stay</p>
+                  </form>
+                </CardContent>
+              </Card>
+
+              <div className="p-6 bg-accent/5 rounded-2xl border border-accent/10 flex items-center gap-4">
+                <div className="h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center">
+                  <Users className="h-6 w-6 text-accent" />
+                </div>
+                <div>
+                  <h5 className="font-bold text-sm">Need a Custom Tour?</h5>
+                  <p className="text-xs text-muted-foreground underline cursor-pointer">Chat with our local experts</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>

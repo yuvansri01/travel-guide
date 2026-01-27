@@ -1,0 +1,171 @@
+Build a complete, fully functional Tourism & Travel Guide Website focusing ONLY on Indian tourist destinations, with full database integration and complete end-to-end working process.
+
+PROJECT TITLE:
+Tourism & Travel Guide Website – Indian Destinations
+
+--------------------------------------------------
+PROJECT OVERVIEW
+--------------------------------------------------
+Develop a full-stack web application that helps users explore Indian tourist destinations, view detailed destination information with multiple images, see the correct best time to visit, explore major tourist spots inside each destination, search places, track search history, book hotels, submit reviews, and receive personalized destination recommendations. The system must be database-driven and suitable for a college capstone project.
+
+--------------------------------------------------
+MODULE 1: DESTINATION INFORMATION & SEARCH MODULE
+--------------------------------------------------
+
+FEATURES:
+
+1. Indian Destinations List:
+Include popular Indian destinations such as:
+Taj Mahal (Agra), Jaipur, Goa, Kerala, Ooty, Manali, Shimla, Ladakh, Munnar, Coorg, Varanasi, Rameshwaram, Tirupati, Mysore, Hampi, Darjeeling, Andaman, Pondicherry, Udaipur, Amritsar, etc.
+
+2. Destination Details (When a place is selected):
+Display the following details:
+- Destination name
+- State
+- Category (Beach / Hill Station / Historical / Religious / Adventure)
+- Short description
+- Detailed description
+- Correct best time to visit (month-wise)
+- Climate information
+- Travel tips
+
+3. Tourist Spots Inside Each Destination:
+For every destination, display 2–3 major tourist spots.
+Example:
+- Goa → Baga Beach, Calangute Beach, Fort Aguada
+- Jaipur → Amer Fort, Hawa Mahal, City Palace
+- Manali → Solang Valley, Rohtang Pass, Hadimba Temple
+
+Each tourist spot should include:
+- Spot name
+- Short description
+- Entry fee (if any)
+
+4. Image Gallery:
+- For each destination, display 3–5 high-quality images
+- Images should load dynamically from the database
+- Responsive and clean layout
+
+5. Search & Filter:
+- Search destinations by name or state
+- Filter by category
+- Filter by best time to visit
+
+6. Search History:
+- Track user search history
+- Store searched destinations in the database
+- Display recent searches for the user
+
+--------------------------------------------------
+MODULE 2: BOOKING, REVIEWS & RECOMMENDATION MODULE
+--------------------------------------------------
+
+1. Hotel Booking System:
+When a destination is selected, allow users to book hotels.
+
+Booking Details:
+- User name
+- Email
+- Mobile number
+- Selected destination
+- Selected hotel
+- Check-in date
+- Check-out date
+- Number of guests
+
+2. Hotel Listing:
+For each destination, list 2–3 hotels.
+Example:
+- Goa → Taj Resort, Novotel Goa, Sea View Resort
+- Manali → Snow Valley Resort, Himalayan Heights, Apple Country Resort
+
+Each hotel should include:
+- Hotel name
+- Location
+- Price per night
+- Hotel rating
+
+3. Reviews & Ratings:
+- Allow users to submit reviews and ratings (1–5 stars) for destinations
+- Store reviews in the database
+- Display average rating and all reviews
+
+4. Recommendation System:
+Recommend destinations based on:
+- User search history
+- Destination category
+- Highest-rated places
+- Popular Indian destinations
+
+--------------------------------------------------
+DATABASE REQUIREMENTS
+--------------------------------------------------
+
+Use SQLite or MySQL with the following tables:
+
+1. destinations:
+id, name, state, category, short_desc, full_desc, best_time, climate, travel_tips
+
+2. destination_images:
+id, destination_id, image_url
+
+3. tourist_spots:
+id, destination_id, spot_name, description, entry_fee
+
+4. hotels:
+id, destination_id, hotel_name, location, price_per_night, rating
+
+5. bookings:
+id, user_name, email, phone, destination_id, hotel_id, check_in, check_out, guests
+
+6. reviews:
+id, destination_id, user_name, rating, review_text
+
+7. search_history:
+id, user_name, destination_name, search_date
+
+--------------------------------------------------
+TECHNOLOGY STACK
+--------------------------------------------------
+
+Frontend:
+- HTML
+- CSS (clean, professional UI)
+- JavaScript (dynamic loading, validation, search, images)
+
+Backend:
+- Node.js with Express OR Python Flask
+- RESTful APIs
+
+Database:
+- SQLite or MySQL
+
+--------------------------------------------------
+WORKING FLOW (END-TO-END)
+--------------------------------------------------
+
+1. User opens the website
+2. User browses Indian tourist destinations
+3. User searches for a place (search history saved)
+4. User selects a destination
+5. System displays:
+   - Destination details
+   - Best time to visit
+   - 3–5 images
+   - 2–3 tourist spots
+   - Available hotels
+6. User books a hotel
+7. User submits review and rating
+8. System stores data in database
+9. System recommends similar destinations
+
+--------------------------------------------------
+OUTPUT REQUIREMENTS
+--------------------------------------------------
+
+- Fully working project in Replit
+- Database schema with sample Indian data
+- Clean folder structure
+- Commented code
+- Instructions to run the project
+- Capstone and viva-ready implementation

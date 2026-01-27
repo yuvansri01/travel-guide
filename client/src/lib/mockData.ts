@@ -11,23 +11,49 @@ export interface Review {
 export interface Booking {
   id: string;
   destinationId: string;
+  hotelId?: string;
   userName: string;
   email: string;
-  travelDate: Date;
+  phone?: string;
+  checkIn?: string;
+  checkOut?: string;
+  travelDate?: Date;
   persons: number;
+}
+
+export interface TouristSpot {
+  id: string;
+  name: string;
+  description: string;
+  entryFee: string;
+}
+
+export interface Hotel {
+  id: string;
+  name: string;
+  location: string;
+  pricePerNight: number;
+  rating: number;
 }
 
 export interface Destination {
   id: string;
   name: string;
+  state: string;
   location: string;
-  category: "Beach" | "Mountain" | "Historical" | "City" | "Nature";
-  description: string;
+  category: "Beach" | "Hill Station" | "Historical" | "Religious" | "Adventure" | "Nature" | "City";
+  shortDesc: string;
+  fullDesc: string;
   bestTime: string;
+  climate: string;
+  travelTips: string;
   rating: number;
   imageUrl: string;
+  galleryImages: string[];
   pricePerPerson: number;
   reviews: Review[];
+  spots: TouristSpot[];
+  hotels: Hotel[];
 }
 
 import parisImg from "../assets/paris.jpg";
@@ -45,116 +71,91 @@ import kanyakumariImg from "../assets/kanyakumari.jpg";
 import kodaikanalImg from "../assets/kodaikanal.jpg";
 import marinaBeachImg from "../assets/marina-beach.jpg";
 
-const MOCK_REVIEWS: Review[] = [
-  { id: "1", destinationId: "1", userName: "Alice M.", rating: 5, comment: "Absolutely magical! The sunset was breathtaking.", date: "2023-10-15" },
-  { id: "2", destinationId: "1", userName: "John D.", rating: 4, comment: "Beautiful but crowded.", date: "2023-09-20" },
-  { id: "3", destinationId: "2", userName: "Sarah K.", rating: 5, comment: "Best spiritual experience of my life.", date: "2023-11-05" },
-  { id: "4", destinationId: "5", userName: "Rajesh P.", rating: 5, comment: "The Taj Mahal is a true wonder. Surreal experience.", date: "2024-01-10" },
-];
-
 export const MOCK_DESTINATIONS: Destination[] = [
   {
-    id: "13",
-    name: "Kodaikanal",
-    location: "Tamil Nadu, India",
-    category: "Mountain",
-    description: "The 'Princess of Hill Stations', Kodaikanal is a peaceful retreat in the Palani Hills. Known for its man-made lake, misty weather, and beautiful pine forests, it's a paradise for nature lovers.",
-    bestTime: "April to June, September to October",
-    rating: 4.8,
-    imageUrl: kodaikanalImg,
-    pricePerPerson: 500,
-    reviews: []
-  },
-  {
-    id: "14",
-    name: "Marina Beach",
-    location: "Chennai, India",
-    category: "Beach",
-    description: "The world's second-longest urban beach, Marina Beach is the soul of Chennai. It offers a wide sandy shoreline, vibrant local street food, and a spectacular view of the sunrise over the Bay of Bengal.",
-    bestTime: "November to February",
-    rating: 4.5,
-    imageUrl: marinaBeachImg,
-    pricePerPerson: 100,
-    reviews: []
-  },
-  {
-    id: "9",
-    name: "Mahabalipuram",
-    location: "Tamil Nadu, India",
+    id: "5",
+    name: "Agra (Taj Mahal)",
+    state: "Uttar Pradesh",
+    location: "Agra, India",
     category: "Historical",
-    description: "Famous for its Shore Temple and monolithic rock-cut monuments, Mahabalipuram is a UNESCO World Heritage site reflecting the architectural brilliance of the Pallava dynasty.",
-    bestTime: "October to March",
-    rating: 4.8,
-    imageUrl: mahabalipuramImg,
-    pricePerPerson: 400,
-    reviews: []
+    shortDesc: "Home to the world-famous symbol of love, the Taj Mahal.",
+    fullDesc: "Agra is a major tourist destination because of its many Mughal-era buildings, most notably the Taj Mahal, Agra Fort and Fatehpur Sikri, all three of which are UNESCO World Heritage Sites.",
+    bestTime: "October to March (Pleasant weather for sightseeing)",
+    climate: "Hot summers, chilly winters, and moderate monsoon.",
+    travelTips: "Visit Taj Mahal at sunrise for the best views and fewer crowds. Wear comfortable walking shoes.",
+    rating: 4.9,
+    imageUrl: tajMahalImg,
+    galleryImages: [tajMahalImg, jaipurImg, maduraiImg],
+    pricePerPerson: 500,
+    reviews: [],
+    spots: [
+      { id: "s1", name: "Taj Mahal", description: "Iconic white marble mausoleum.", entryFee: "₹50 (Indians), ₹1100 (Foreigners)" },
+      { id: "s2", name: "Agra Fort", description: "Historic fort that was the main residence of Mughals.", entryFee: "₹40" },
+      { id: "s3", name: "Mehtab Bagh", description: "Garden complex with a stunning view of the Taj.", entryFee: "₹25" }
+    ],
+    hotels: [
+      { id: "h1", name: "Oberoi Amarvilas", location: "Near Taj East Gate", pricePerNight: 25000, rating: 5 },
+      { id: "h2", name: "ITC Mughal", location: "Fatehabad Road", pricePerNight: 8000, rating: 4.5 }
+    ]
+  },
+  {
+    id: "8",
+    name: "Goa",
+    state: "Goa",
+    location: "Goa, India",
+    category: "Beach",
+    shortDesc: "The ultimate beach destination with vibrant nightlife.",
+    fullDesc: "Goa is India's smallest state and unlike any other, known for its endless beaches, stellar nightlife, and Portuguese-influenced architecture.",
+    bestTime: "November to February (Perfect beach weather)",
+    climate: "Tropical climate with high humidity throughout the year.",
+    travelTips: "Rent a scooter to explore North and South Goa at your own pace.",
+    rating: 4.6,
+    imageUrl: goaImg,
+    galleryImages: [goaImg, marinaBeachImg, baliImg],
+    pricePerPerson: 450,
+    reviews: [],
+    spots: [
+      { id: "s4", name: "Baga Beach", description: "Famous for water sports and nightlife.", entryFee: "Free" },
+      { id: "s5", name: "Fort Aguada", description: "17th-century Portuguese fort.", entryFee: "Free" },
+      { id: "s6", name: "Dudhsagar Falls", description: "Four-tiered waterfall on Mandovi River.", entryFee: "₹400 (Jeep Safari)" }
+    ],
+    hotels: [
+      { id: "h3", name: "Taj Exotica", location: "Benaulim", pricePerNight: 15000, rating: 5 },
+      { id: "h4", name: "Novotel Goa", location: "Candolim", pricePerNight: 7000, rating: 4 }
+    ]
   },
   {
     id: "10",
     name: "Madurai",
-    location: "Tamil Nadu, India",
-    category: "Historical",
-    description: "One of the oldest continuously inhabited cities in the world, Madurai is centered around the spectacular Meenakshi Amman Temple, a masterpiece of Dravidian architecture.",
-    bestTime: "October to March",
+    state: "Tamil Nadu",
+    location: "Madurai, India",
+    category: "Religious",
+    shortDesc: "The Athens of the East, famous for Meenakshi Amman Temple.",
+    fullDesc: "Madurai is one of the oldest continuously inhabited cities in the world. It is built around the Meenakshi Amman Temple, which is a major pilgrimage site.",
+    bestTime: "October to March (Avoid the intense summer heat)",
+    climate: "Hot and semi-arid with a distinct monsoon season.",
+    travelTips: "Visit the temple early in the morning or for the night ceremony.",
     rating: 4.9,
     imageUrl: maduraiImg,
+    galleryImages: [maduraiImg, mahabalipuramImg, tajMahalImg],
     pricePerPerson: 350,
-    reviews: []
-  },
-  {
-    id: "11",
-    name: "Ooty",
-    location: "Tamil Nadu, India",
-    category: "Mountain",
-    description: "The 'Queen of Hill Stations', Ooty is nestled in the Nilgiri Hills. It's famous for its tea plantations, toy train, and cool, misty climate.",
-    bestTime: "March to June, October to December",
-    rating: 4.7,
-    imageUrl: ootyImg,
-    pricePerPerson: 550,
-    reviews: []
-  },
-  {
-    id: "12",
-    name: "Kanyakumari",
-    location: "Tamil Nadu, India",
-    category: "Beach",
-    description: "The southernmost tip of mainland India, where the Arabian Sea, the Bay of Bengal, and the Indian Ocean meet. Famous for its sunrise, sunset, and the Vivekananda Rock Memorial.",
-    bestTime: "October to March",
-    rating: 4.6,
-    imageUrl: kanyakumariImg,
-    pricePerPerson: 450,
-    reviews: []
-  },
-  {
-    id: "5",
-    name: "Agra",
-    location: "India",
-    category: "Historical",
-    description: "Home to the iconic Taj Mahal, Agra is a city rich in Mughal heritage. The white marble mausoleum built by Shah Jahan for his wife Mumtaz Mahal is a UNESCO World Heritage site and a symbol of eternal love.",
-    bestTime: "October to March",
-    rating: 4.9,
-    imageUrl: tajMahalImg,
-    pricePerPerson: 500,
-    reviews: MOCK_REVIEWS.filter(r => r.destinationId === "5")
-  },
-  {
-    id: "6",
-    name: "Kerala",
-    location: "India",
-    category: "Nature",
-    description: "Known as 'God's Own Country', Kerala is famous for its serene backwaters, lush green hills, and vibrant culture. A houseboat cruise through the Alleppey backwaters is a quintessential Indian travel experience.",
-    bestTime: "September to March",
-    rating: 4.8,
-    imageUrl: keralaImg,
-    pricePerPerson: 700,
-    reviews: []
+    reviews: [],
+    spots: [
+      { id: "s7", name: "Meenakshi Temple", description: "Dravidian architecture masterpiece.", entryFee: "Free" },
+      { id: "s8", name: "Thirumalai Nayakkar Palace", description: "17th-century palace complex.", entryFee: "₹10" },
+      { id: "s9", name: "Gandhi Memorial Museum", description: "Museum dedicated to Mahatma Gandhi.", entryFee: "Free" }
+    ],
+    hotels: [
+      { id: "h5", name: "Heritage Madurai", location: "Melakkal Main Road", pricePerNight: 6000, rating: 4.5 },
+      { id: "h6", name: "The Gateway Hotel", location: "Pasumalai", pricePerNight: 5500, rating: 4 }
+    ]
   }
 ];
 
-// Simple in-memory store simulation
 class Store {
   destinations: Destination[] = [...MOCK_DESTINATIONS];
   bookings: Booking[] = [];
+  searchHistory: string[] = [];
 
   getDestinations() {
     return this.destinations;
@@ -166,7 +167,6 @@ class Store {
 
   addBooking(booking: Booking) {
     this.bookings.push(booking);
-    console.log("New booking added:", booking);
     return true;
   }
 
@@ -174,12 +174,22 @@ class Store {
     const dest = this.destinations.find(d => d.id === review.destinationId);
     if (dest) {
       dest.reviews.unshift(review);
-      // Recalculate rating
       const total = dest.reviews.reduce((acc, r) => acc + r.rating, 0);
       dest.rating = parseFloat((total / dest.reviews.length).toFixed(1));
       return true;
     }
     return false;
+  }
+
+  addToSearchHistory(term: string) {
+    if (!this.searchHistory.includes(term)) {
+      this.searchHistory.unshift(term);
+      this.searchHistory = this.searchHistory.slice(0, 5);
+    }
+  }
+
+  getSearchHistory() {
+    return this.searchHistory;
   }
 }
 
