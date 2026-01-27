@@ -50,9 +50,9 @@ export default function Home() {
 
           {/* Hero Content */}
           <div className="relative z-10 container mx-auto px-4 text-center">
-            <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <h1 className="font-serif text-6xl md:text-8xl font-bold text-white mb-6 animate-in fade-in slide-in-from-bottom-8 duration-1000 tracking-tight">
               Discover Your Next <br/>
-              <span className="text-accent italic">Adventure</span>
+              <span className="text-accent italic drop-shadow-sm">Adventure</span>
             </h1>
             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
               Explore the world's most breathtaking destinations. From hidden gems to iconic landmarks, we help you find the perfect getaway.
