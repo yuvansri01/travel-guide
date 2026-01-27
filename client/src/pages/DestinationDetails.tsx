@@ -193,7 +193,16 @@ export default function DestinationDetails({ params }: { params: { id: string } 
                             <span className="text-sm font-medium">Entry: {spot.entryFee}</span>
                           </div>
                         </div>
-                        <Button variant="outline" className="h-fit">View on Map</Button>
+                        <Button 
+                          variant="outline" 
+                          className="h-fit"
+                          onClick={() => {
+                            const query = encodeURIComponent(`${spot.name}, ${destination.name}, ${destination.state}`);
+                            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+                          }}
+                        >
+                          Show on Map
+                        </Button>
                       </div>
                     </Card>
                   ))}

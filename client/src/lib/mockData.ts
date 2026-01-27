@@ -70,6 +70,8 @@ import ootyImg from "../assets/ooty.jpg";
 import kanyakumariImg from "../assets/kanyakumari.jpg";
 import kodaikanalImg from "../assets/kodaikanal.jpg";
 import marinaBeachImg from "../assets/marina-beach.jpg";
+import hampiImg from "../assets/bali.jpg"; // Using bali as placeholder
+import munnarImg from "../assets/kerala.jpg";
 
 export const MOCK_DESTINATIONS: Destination[] = [
   {
@@ -148,6 +150,58 @@ export const MOCK_DESTINATIONS: Destination[] = [
     hotels: [
       { id: "h5", name: "Heritage Madurai", location: "Melakkal Main Road", pricePerNight: 6000, rating: 4.5 },
       { id: "h6", name: "The Gateway Hotel", location: "Pasumalai", pricePerNight: 5500, rating: 4 }
+    ]
+  },
+  {
+    id: "11",
+    name: "Munnar",
+    state: "Kerala",
+    location: "Idukki, India",
+    category: "Hill Station",
+    shortDesc: "Emerald green tea plantations and rolling hills.",
+    fullDesc: "Munnar is a breathtaking hill station in the Western Ghats of Kerala. It was once the summer resort of the British government in South India.",
+    bestTime: "September to March",
+    climate: "Cool and pleasant year-round with heavy rains in monsoon.",
+    travelTips: "Carry a light jacket even in summer. Visit the Eravikulam National Park early.",
+    rating: 4.8,
+    imageUrl: munnarImg,
+    galleryImages: [munnarImg, ootyImg, kodaikanalImg],
+    pricePerPerson: 400,
+    reviews: [],
+    spots: [
+      { id: "s10", name: "Eravikulam National Park", description: "Home to the Nilgiri Tahr.", entryFee: "₹120" },
+      { id: "s11", name: "Tea Museum", description: "History of tea production in the region.", entryFee: "₹75" },
+      { id: "s12", name: "Mattupetty Dam", description: "Beautiful lake and masonry gravity dam.", entryFee: "₹10" }
+    ],
+    hotels: [
+      { id: "h7", name: "The Panoramic Getaway", location: "Chithirapuram", pricePerNight: 9000, rating: 5 },
+      { id: "h8", name: "Tea County", location: "Munnar Town", pricePerNight: 6500, rating: 4.2 }
+    ]
+  },
+  {
+    id: "12",
+    name: "Hampi",
+    state: "Karnataka",
+    location: "Vijayanagara, India",
+    category: "Historical",
+    shortDesc: "The forgotten empire of Vijayanagara ruins.",
+    fullDesc: "Hampi is a UNESCO World Heritage site featuring the ruins of the medieval Vijayanagara Empire. It is a surreal landscape of boulders and ancient temples.",
+    bestTime: "October to February",
+    climate: "Tropical; hot summers and pleasant winters.",
+    travelTips: "Rent a bicycle to explore the vast ruins. Cross the river to 'Hippie Island' for a different vibe.",
+    rating: 4.9,
+    imageUrl: hampiImg,
+    galleryImages: [hampiImg, mahabalipuramImg, tajMahalImg],
+    pricePerPerson: 300,
+    reviews: [],
+    spots: [
+      { id: "s13", name: "Virupaksha Temple", description: "Functional 7th-century Hindu temple.", entryFee: "₹50" },
+      { id: "s14", name: "Vittala Temple", description: "Stone chariot and musical pillars.", entryFee: "₹40" },
+      { id: "s15", name: "Lotus Mahal", description: "Secular Indo-Islamic architecture.", entryFee: "Included in Hampi ticket" }
+    ],
+    hotels: [
+      { id: "h9", name: "Evolve Back Hampi", location: "Kamalapura", pricePerNight: 30000, rating: 5 },
+      { id: "h10", name: "Heritage Resort Hampi", location: "Hospet", pricePerNight: 7500, rating: 4.5 }
     ]
   }
 ];
