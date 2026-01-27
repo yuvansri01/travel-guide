@@ -76,8 +76,89 @@ import amritsarImg from "../assets/kyoto.jpg"; // Placeholder
 import rishikeshImg from "../assets/bali.jpg"; // Placeholder
 import bengaluruImg from "../assets/kyoto.jpg"; // Placeholder
 import chennaiImg from "../assets/marina-beach.jpg";
+import pondicherryImg from "../assets/santorini.jpg"; // Placeholder
+import kochiImg from "../assets/kerala.jpg";
+import kanyakumariBeachImg from "../assets/kanyakumari.jpg";
 
 export const MOCK_DESTINATIONS: Destination[] = [
+  {
+    id: "17",
+    name: "Pondicherry",
+    state: "Puducherry",
+    location: "Pondicherry, India",
+    category: "Beach",
+    shortDesc: "The French Riviera of the East with serene beaches.",
+    fullDesc: "Pondicherry is a charming coastal town that blends French colonial heritage with spiritual tranquility. Its cobblestone streets, vibrant architecture, and pristine beaches make it a unique getaway.",
+    bestTime: "October to March",
+    climate: "Tropical; humid but pleasant during winters.",
+    travelTips: "Rent a bicycle to explore the White Town. Visit Auroville for a spiritual experience.",
+    rating: 4.8,
+    imageUrl: pondicherryImg,
+    galleryImages: [pondicherryImg, marinaBeachImg, goaImg],
+    pricePerPerson: 400,
+    reviews: [],
+    spots: [
+      { id: "s28", name: "Promenade Beach", description: "Iconic oceanfront walk with a statue of Mahatma Gandhi.", entryFee: "Free" },
+      { id: "s29", name: "Paradise Beach", description: "Accessible by boat, famous for its golden sands.", entryFee: "₹300 (Ferry)" },
+      { id: "s30", name: "Auroville", description: "Experimental township focused on human unity.", entryFee: "Free" }
+    ],
+    hotels: [
+      { id: "h19", name: "Palais de Mahe", location: "White Town", pricePerNight: 12000, rating: 5 },
+      { id: "h20", name: "Radisson Resort", location: "Manavala Nagar", pricePerNight: 9500, rating: 4.6 }
+    ]
+  },
+  {
+    id: "18",
+    name: "Kochi",
+    state: "Kerala",
+    location: "Kochi, India",
+    category: "Beach",
+    shortDesc: "Queen of the Arabian Sea with historic fishing nets.",
+    fullDesc: "Kochi is a historic port city known for its eclectic mix of cultures. Fort Kochi offers stunning beach views, colonial architecture, and the famous Chinese fishing nets.",
+    bestTime: "October to April",
+    climate: "Tropical; warm and humid year-round.",
+    travelTips: "Take a sunset cruise in the backwaters. Try the local seafood curry.",
+    rating: 4.7,
+    imageUrl: kochiImg,
+    galleryImages: [kochiImg, munnarImg, goaImg],
+    pricePerPerson: 380,
+    reviews: [],
+    spots: [
+      { id: "s31", name: "Fort Kochi Beach", description: "Famous for Chinese fishing nets and sunset views.", entryFee: "Free" },
+      { id: "s32", name: "Mattancherry Palace", description: "Portuguese palace featuring Hindu murals.", entryFee: "₹5" },
+      { id: "s33", name: "Cherai Beach", description: "Pristine beach perfect for swimming.", entryFee: "Free" }
+    ],
+    hotels: [
+      { id: "h21", name: "Brunton Boatyard", location: "Fort Kochi", pricePerNight: 18000, rating: 5 },
+      { id: "h22", name: "Casino Hotel", location: "Willingdon Island", pricePerNight: 7000, rating: 4.5 }
+    ]
+  },
+  {
+    id: "19",
+    name: "Kanyakumari",
+    state: "Tamil Nadu",
+    location: "Kanyakumari, India",
+    category: "Beach",
+    shortDesc: "The tip of India where three oceans meet.",
+    fullDesc: "Kanyakumari is the southernmost tip of mainland India. It is famous for its unique sunrises and sunsets over the confluence of the Arabian Sea, Bay of Bengal, and Indian Ocean.",
+    bestTime: "October to March",
+    climate: "Maritime tropical; pleasant breeze year-round.",
+    travelTips: "Visit the Vivekananda Rock Memorial by ferry. Watch the moonrise and sunset simultaneously on full moon days.",
+    rating: 4.6,
+    imageUrl: kanyakumariBeachImg,
+    galleryImages: [kanyakumariBeachImg, marinaBeachImg, maduraiImg],
+    pricePerPerson: 300,
+    reviews: [],
+    spots: [
+      { id: "s34", name: "Vivekananda Rock Memorial", description: "Monument built on a rock offshore.", entryFee: "₹50 + Ferry" },
+      { id: "s35", name: "Kanyakumari Beach", description: "Multicolor sands and stunning ocean views.", entryFee: "Free" },
+      { id: "s36", name: "Thiruvalluvar Statue", description: "Colossal 133ft stone statue of the Tamil poet.", entryFee: "Ferry required" }
+    ],
+    hotels: [
+      { id: "h23", name: "Sparsa Resort", location: "Beach Road", pricePerNight: 6500, rating: 4.5 },
+      { id: "h24", name: "Hotel Sea View", location: "East Car Street", pricePerNight: 4000, rating: 4.2 }
+    ]
+  },
   {
     id: "15",
     name: "Bengaluru",
@@ -109,8 +190,8 @@ export const MOCK_DESTINATIONS: Destination[] = [
     name: "Chennai",
     state: "Tamil Nadu",
     location: "Chennai, India",
-    category: "City",
-    shortDesc: "The Gateway to South India with rich heritage.",
+    category: "Beach",
+    shortDesc: "The Gateway to South India with the famous Marina Beach.",
     fullDesc: "Chennai is a major cultural, economic, and educational center. It is famous for its classical music and dance, beautiful temples, and the sprawling Marina Beach.",
     bestTime: "November to February",
     climate: "Tropical maritime climate; hot and humid for most of the year.",
