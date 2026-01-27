@@ -19,8 +19,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 
-export default function DestinationDetails() {
-  const [match, params] = useRoute("/destination/:id");
+export default function DestinationDetails({ params }: { params: { id: string } }) {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const id = params?.id;
