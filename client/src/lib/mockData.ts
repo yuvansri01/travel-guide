@@ -34,14 +34,67 @@ import parisImg from "../assets/paris.jpg";
 import baliImg from "../assets/bali.jpg";
 import kyotoImg from "../assets/kyoto.jpg";
 import santoriniImg from "../assets/santorini.jpg";
+import tajMahalImg from "../assets/taj-mahal.jpg";
+import keralaImg from "../assets/kerala.jpg";
+import jaipurImg from "../assets/jaipur.jpg";
+import goaImg from "../assets/goa.jpg";
 
 const MOCK_REVIEWS: Review[] = [
   { id: "1", destinationId: "1", userName: "Alice M.", rating: 5, comment: "Absolutely magical! The sunset was breathtaking.", date: "2023-10-15" },
   { id: "2", destinationId: "1", userName: "John D.", rating: 4, comment: "Beautiful but crowded.", date: "2023-09-20" },
   { id: "3", destinationId: "2", userName: "Sarah K.", rating: 5, comment: "Best spiritual experience of my life.", date: "2023-11-05" },
+  { id: "4", destinationId: "5", userName: "Rajesh P.", rating: 5, comment: "The Taj Mahal is a true wonder. Surreal experience.", date: "2024-01-10" },
 ];
 
 export const MOCK_DESTINATIONS: Destination[] = [
+  {
+    id: "5",
+    name: "Agra",
+    location: "India",
+    category: "Historical",
+    description: "Home to the iconic Taj Mahal, Agra is a city rich in Mughal heritage. The white marble mausoleum built by Shah Jahan for his wife Mumtaz Mahal is a UNESCO World Heritage site and a symbol of eternal love.",
+    bestTime: "October to March",
+    rating: 4.9,
+    imageUrl: tajMahalImg,
+    pricePerPerson: 500,
+    reviews: MOCK_REVIEWS.filter(r => r.destinationId === "5")
+  },
+  {
+    id: "6",
+    name: "Kerala",
+    location: "India",
+    category: "Nature",
+    description: "Known as 'God's Own Country', Kerala is famous for its serene backwaters, lush green hills, and vibrant culture. A houseboat cruise through the Alleppey backwaters is a quintessential Indian travel experience.",
+    bestTime: "September to March",
+    rating: 4.8,
+    imageUrl: keralaImg,
+    pricePerPerson: 700,
+    reviews: []
+  },
+  {
+    id: "7",
+    name: "Jaipur",
+    location: "India",
+    category: "Historical",
+    description: "The 'Pink City' of India, Jaipur is part of the Golden Triangle. It boasts magnificent forts like Amer Fort, the unique Hawa Mahal, and bustling markets filled with traditional jewelry and textiles.",
+    bestTime: "November to February",
+    rating: 4.7,
+    imageUrl: jaipurImg,
+    pricePerPerson: 600,
+    reviews: []
+  },
+  {
+    id: "8",
+    name: "Goa",
+    location: "India",
+    category: "Beach",
+    description: "Goa is India's pocket-sized paradise, known for its endless beaches, stellar nightlife, and Portuguese-influenced architecture. From the party beaches of the North to the quiet sands of the South, there's a beach for everyone.",
+    bestTime: "November to February",
+    rating: 4.6,
+    imageUrl: goaImg,
+    pricePerPerson: 450,
+    reviews: []
+  },
   {
     id: "1",
     name: "Santorini",
