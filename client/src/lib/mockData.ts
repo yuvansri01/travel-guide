@@ -38,6 +38,10 @@ import tajMahalImg from "../assets/taj-mahal.jpg";
 import keralaImg from "../assets/kerala.jpg";
 import jaipurImg from "../assets/jaipur.jpg";
 import goaImg from "../assets/goa.jpg";
+import mahabalipuramImg from "../assets/mahabalipuram.jpg";
+import maduraiImg from "../assets/madurai.jpg";
+import ootyImg from "../assets/ooty.jpg";
+import kanyakumariImg from "../assets/kanyakumari.jpg";
 
 const MOCK_REVIEWS: Review[] = [
   { id: "1", destinationId: "1", userName: "Alice M.", rating: 5, comment: "Absolutely magical! The sunset was breathtaking.", date: "2023-10-15" },
@@ -47,6 +51,54 @@ const MOCK_REVIEWS: Review[] = [
 ];
 
 export const MOCK_DESTINATIONS: Destination[] = [
+  {
+    id: "9",
+    name: "Mahabalipuram",
+    location: "Tamil Nadu, India",
+    category: "Historical",
+    description: "Famous for its Shore Temple and monolithic rock-cut monuments, Mahabalipuram is a UNESCO World Heritage site reflecting the architectural brilliance of the Pallava dynasty.",
+    bestTime: "October to March",
+    rating: 4.8,
+    imageUrl: mahabalipuramImg,
+    pricePerPerson: 400,
+    reviews: []
+  },
+  {
+    id: "10",
+    name: "Madurai",
+    location: "Tamil Nadu, India",
+    category: "Historical",
+    description: "One of the oldest continuously inhabited cities in the world, Madurai is centered around the spectacular Meenakshi Amman Temple, a masterpiece of Dravidian architecture.",
+    bestTime: "October to March",
+    rating: 4.9,
+    imageUrl: maduraiImg,
+    pricePerPerson: 350,
+    reviews: []
+  },
+  {
+    id: "11",
+    name: "Ooty",
+    location: "Tamil Nadu, India",
+    category: "Mountain",
+    description: "The 'Queen of Hill Stations', Ooty is nestled in the Nilgiri Hills. It's famous for its tea plantations, toy train, and cool, misty climate.",
+    bestTime: "March to June, October to December",
+    rating: 4.7,
+    imageUrl: ootyImg,
+    pricePerPerson: 550,
+    reviews: []
+  },
+  {
+    id: "12",
+    name: "Kanyakumari",
+    location: "Tamil Nadu, India",
+    category: "Beach",
+    description: "The southernmost tip of mainland India, where the Arabian Sea, the Bay of Bengal, and the Indian Ocean meet. Famous for its sunrise, sunset, and the Vivekananda Rock Memorial.",
+    bestTime: "October to March",
+    rating: 4.6,
+    imageUrl: kanyakumariImg,
+    pricePerPerson: 450,
+    reviews: []
+  },
   {
     id: "5",
     name: "Agra",
@@ -112,7 +164,7 @@ export const MOCK_DESTINATIONS: Destination[] = [
     name: "Bali",
     location: "Indonesia",
     category: "Nature",
-    description: "Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reefs. The island is home to religious sites such as cliffside Uluwatu Temple. To the south, the beachside city of Kuta has lively bars, while Seminyak, Sanur and Nusa Dua are popular resort towns.",
+    description: "Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reef. The island is home to religious sites such as cliffside Uluwatu Temple. To the south, the beachside city of Kuta has lively bars, while Seminyak, Sanur and Nusa Dua are popular resort towns.",
     bestTime: "May to September",
     rating: 4.7,
     imageUrl: baliImg,
