@@ -103,8 +103,16 @@ export const MOCK_DESTINATIONS: Destination[] = [
     galleryImages: [chennaiImg, maduraiImg, mahabalipuramImg],
     pricePerPerson: 350,
     reviews: [
-      { id: "r1", destinationId: "16", userName: "Arun Kumar", rating: 5, comment: "Absolutely beautiful and clean - skip Goa and go to Chennai. Security and safety is their top priority. You will find many clean toilets.", date: "2024-01-15" },
-      { id: "r2", destinationId: "16", userName: "Priya S", rating: 4, comment: "Best place to hang out with friends and family. It's awesome place to visit in Chennai because its India's biggest beach", date: "2024-01-10" }
+      { id: "r16_1", destinationId: "16", userName: "Arun Kumar", rating: 5, comment: "Absolutely beautiful and clean - skip Goa and go to Chennai. Security and safety is their top priority.", date: "2024-01-15" },
+      { id: "r16_2", destinationId: "16", userName: "Priya S", rating: 4, comment: "Best place to hang out with friends and family. It's awesome place to visit in Chennai because its India's biggest beach", date: "2024-01-10" },
+      { id: "r16_3", destinationId: "16", userName: "Vikram Seth", rating: 5, comment: "The sunrise at Marina is a spiritual experience. Don't miss the street food near the lighthouse.", date: "2024-01-05" },
+      { id: "r16_4", destinationId: "16", userName: "Sanjay R", rating: 4, comment: "Very crowded on weekends but the vibe is electric. Great for long walks.", date: "2023-12-28" },
+      { id: "r16_5", destinationId: "16", userName: "Meera Nair", rating: 5, comment: "The cultural heritage in Mylapore is stunning. Kapaleeshwarar temple is a must-visit.", date: "2023-12-20" },
+      { id: "r16_6", destinationId: "16", userName: "John Doe", rating: 4, comment: "Good mix of modern city and ancient traditions. Traffic is heavy but worth it.", date: "2023-12-15" },
+      { id: "r16_7", destinationId: "16", userName: "Ananya", rating: 5, comment: "Elliot's beach is so much cleaner and quieter. Perfect for peaceful evenings.", date: "2023-12-10" },
+      { id: "r16_8", destinationId: "16", userName: "Karthik", rating: 4, comment: "Chennai food is amazing! Best filter coffee in the world.", date: "2023-12-05" },
+      { id: "r16_9", destinationId: "16", userName: "Sarah Jenkins", rating: 5, comment: "The Santhome Basilica is beautiful. Such history in this city.", date: "2023-11-28" },
+      { id: "r16_10", destinationId: "16", userName: "Rahul Dravid", rating: 5, comment: "Coming back here is always a pleasure. The hospitality of people is great.", date: "2023-11-20" }
     ],
     spots: [
       { 
@@ -115,8 +123,22 @@ export const MOCK_DESTINATIONS: Destination[] = [
         details: {
           history: "Marina Beach is a natural urban beach in Chennai, Tamil Nadu, India, along the Bay of Bengal. The beach runs from near Fort St. George in the north to Foreshore Estate in the south.",
           highlights: ["Longest natural urban beach in India", "Statues of Tamil scholars", "Lighthouse views"],
-          images: ["https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800"],
-          reviews: [{ id: "msr1", user: "Rajesh", rating: 5, text: "The sunrise here is spiritual. Must visit early morning." }]
+          images: [
+            "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1590050752117-23a9d7fc2140?auto=format&fit=crop&q=80&w=800"
+          ],
+          reviews: [
+            { id: "msr1", user: "Rajesh", rating: 5, text: "The sunrise here is spiritual. Must visit early morning." },
+            { id: "msr2", user: "Suresh", rating: 4, text: "Great for a family outing. The breeze is lovely." },
+            { id: "msr3", user: "Lakshmi", rating: 5, text: "Iconic landmark of Chennai. Pure magic at dawn." },
+            { id: "msr4", user: "Dev", rating: 4, text: "So much space to walk. The sand is soft." },
+            { id: "msr5", user: "Ram", rating: 5, text: "Best street food near the statues. Try the bajji!" },
+            { id: "msr6", user: "Priya", rating: 4, text: "A bit crowded but the atmosphere is amazing." },
+            { id: "msr7", user: "Kumar", rating: 5, text: "The lighthouse offers a great view of the city." },
+            { id: "msr8", user: "Divya", rating: 4, text: "Love the evening vibe here. Very lively." },
+            { id: "msr9", user: "Arun", rating: 5, text: "Clean and well maintained these days." },
+            { id: "msr10", user: "Bala", rating: 4, text: "Perfect place to sit and watch the waves." }
+          ]
         }
       },
       { 
@@ -169,8 +191,16 @@ export const MOCK_DESTINATIONS: Destination[] = [
     galleryImages: [maduraiImg, mahabalipuramImg, tajMahalImg],
     pricePerPerson: 350,
     reviews: [
-      { id: "r3", destinationId: "10", userName: "Vicky K", rating: 5, comment: "One of the most magnificent temples in India. The intricate sculptures, colorful gopurams, and rich cultural heritage make the visit unforgettable.", date: "2024-01-20" },
-      { id: "r4", destinationId: "10", userName: "Alex T", rating: 5, comment: "Meenakshi Amman Temple is truly breathtaking with its colourful gopurams, detailed sculptures and vibrant atmosphere.", date: "2024-01-18" }
+      { id: "r10_1", destinationId: "10", userName: "Vicky K", rating: 5, comment: "One of the most magnificent temples in India. The intricate sculptures and colorful gopurams are unforgettable.", date: "2024-01-20" },
+      { id: "r10_2", destinationId: "10", userName: "Alex T", rating: 5, comment: "Meenakshi Amman Temple is truly breathtaking. Vibrant atmosphere and deep spiritual feel.", date: "2024-01-18" },
+      { id: "r10_3", destinationId: "10", userName: "Ravi Kumar", rating: 5, comment: "The night ceremony at the temple is a must-see. Pure magic.", date: "2024-01-10" },
+      { id: "r10_4", destinationId: "10", userName: "Sita R", rating: 4, comment: "Thirumalai Nayakkar Palace is an architectural gem. Great for photos.", date: "2024-01-05" },
+      { id: "r10_5", destinationId: "10", userName: "Madan", rating: 5, comment: "Madurai food is the best. Don't miss the Jigarthanda!", date: "2023-12-25" },
+      { id: "r10_6", destinationId: "10", userName: "Elena", rating: 5, comment: "The history in every corner of this city is amazing. One of the oldest cities.", date: "2023-12-15" },
+      { id: "r10_7", destinationId: "10", userName: "Senthil", rating: 4, comment: "Friendly people and great shopping near the temple.", date: "2023-12-10" },
+      { id: "r10_8", destinationId: "10", userName: "Prabhu", rating: 5, comment: "The thousand pillar hall is a masterpiece. Highly recommend.", date: "2023-12-05" },
+      { id: "r10_9", destinationId: "10", userName: "Meenakshi", rating: 5, comment: "My namesake city never disappoints. So beautiful.", date: "2023-11-28" },
+      { id: "r10_10", destinationId: "10", userName: "Vijay", rating: 4, comment: "Crowded but well worth the visit for the culture.", date: "2023-11-20" }
     ],
     spots: [
       { 
@@ -181,8 +211,22 @@ export const MOCK_DESTINATIONS: Destination[] = [
         details: {
           history: "Located on the southern bank of the Vaigai River in the temple city of Madurai, it is dedicated to Meenakshi, a form of Parvati, and her consort, Sundareshwarar.",
           highlights: ["14 gateway towers (gopurams)", "Hall of Thousand Pillars", "Golden Lotus Tank"],
-          images: ["https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&q=80&w=800"],
-          reviews: [{ id: "msr1", user: "Anil", rating: 5, text: "A architectural marvel. You can spend hours looking at the carvings." }]
+          images: [
+            "https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1605335123329-3712953258c7?auto=format&fit=crop&q=80&w=800"
+          ],
+          reviews: [
+            { id: "mtr1", user: "Anil", rating: 5, text: "A architectural marvel. You can spend hours looking at the carvings." },
+            { id: "mtr2", user: "Suresh", rating: 5, text: "Very spiritual. The energy is amazing." },
+            { id: "mtr3", user: "Lakshmi", rating: 5, text: "Most beautiful temple in South India." },
+            { id: "mtr4", user: "Dev", rating: 4, text: "Check timings before visiting. Very organized." },
+            { id: "mtr5", user: "Ram", rating: 5, text: "The painting on the ceilings are great." },
+            { id: "mtr6", user: "Priya", rating: 5, text: "Peaceful early morning visit." },
+            { id: "mtr7", user: "Kumar", rating: 5, text: "The gopurams are so colorful." },
+            { id: "mtr8", user: "Divya", rating: 4, text: "Must visit once in a lifetime." },
+            { id: "mtr9", user: "Arun", rating: 5, text: "Great place for history and architecture." },
+            { id: "mtr10", user: "Bala", rating: 5, text: "Breathtakingly beautiful at night." }
+          ]
         }
       },
       { 
