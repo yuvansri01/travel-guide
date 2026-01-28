@@ -288,18 +288,50 @@ export default function DestinationDetails({ params }: { params: { id: string } 
                               </h4>
                               <div className="space-y-3">
                                 {selectedSpot.details.reviews.map((rev: any) => (
-                                  <div key={rev.id} className="bg-muted/30 p-4 rounded-xl space-y-2">
+                                  <div key={rev.id} className="bg-muted/30 p-4 rounded-xl space-y-2 hover:bg-muted/50 transition-colors group cursor-default">
                                     <div className="flex justify-between items-center">
                                       <span className="font-bold text-sm">{rev.user}</span>
                                       <div className="flex gap-0.5">
-                                        {[...Array(rev.rating)].map((_, i) => (
-                                          <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                                        {[...Array(5)].map((_, i) => (
+                                          <Star 
+                                            key={i} 
+                                            className={cn(
+                                              "h-3 w-3 transition-transform duration-300 group-hover:scale-125",
+                                              i < rev.rating ? "fill-yellow-400 text-yellow-400" : "text-muted-foreground"
+                                            )} 
+                                          />
                                         ))}
                                       </div>
                                     </div>
-                                    <p className="text-sm text-muted-foreground italic">"{rev.text}"</p>
+                                    <p className="text-sm text-muted-foreground italic group-hover:text-foreground transition-colors">"{rev.text}"</p>
                                   </div>
                                 ))}
+                              </div>
+                              
+                              {/* Add Review for Spot */}
+                              <div className="pt-4 space-y-3">
+                                <h5 className="text-sm font-bold">Add your experience</h5>
+                                <div className="flex gap-2">
+                                  <Input 
+                                    placeholder="Share your thoughts..." 
+                                    className="h-10 text-sm"
+                                    onKeyDown={(e) => {
+                                      if (e.key === 'Enter') {
+                                        toast({
+                                          title: "Review Added",
+                                          description: "Your review for this spot has been submitted for moderation.",
+                                        });
+                                        (e.target as HTMLInputElement).value = "";
+                                      }
+                                    }}
+                                  />
+                                  <Button size="sm" className="bg-primary/90 hover:bg-primary" onClick={() => {
+                                     toast({
+                                      title: "Review Added",
+                                      description: "Your review for this spot has been submitted for moderation.",
+                                    });
+                                  }}>Post</Button>
+                                </div>
                               </div>
                             </div>
                           )}
