@@ -26,6 +26,12 @@ export interface TouristSpot {
   name: string;
   description: string;
   entryFee: string;
+  details?: {
+    history: string;
+    highlights: string[];
+    images: string[];
+    reviews: { id: string; user: string; rating: number; text: string }[];
+  };
 }
 
 export interface Hotel {
@@ -101,9 +107,42 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "r2", destinationId: "16", userName: "Priya S", rating: 4, comment: "Best place to hang out with friends and family. It's awesome place to visit in Chennai because its India's biggest beach", date: "2024-01-10" }
     ],
     spots: [
-      { id: "s25", name: "Marina Beach", description: "One of the longest urban beaches in the world.", entryFee: "Free" },
-      { id: "s_chen_1", name: "Elliot’s Beach (Besant Nagar)", description: "A popular hangout spot for locals.", entryFee: "Free" },
-      { id: "s26", name: "Kapaleeshwarar Temple", description: "Ancient Dravidian-style temple.", entryFee: "Free" },
+      { 
+        id: "s25", 
+        name: "Marina Beach", 
+        description: "One of the longest urban beaches in the world.", 
+        entryFee: "Free",
+        details: {
+          history: "Marina Beach is a natural urban beach in Chennai, Tamil Nadu, India, along the Bay of Bengal. The beach runs from near Fort St. George in the north to Foreshore Estate in the south.",
+          highlights: ["Longest natural urban beach in India", "Statues of Tamil scholars", "Lighthouse views"],
+          images: ["https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "msr1", user: "Rajesh", rating: 5, text: "The sunrise here is spiritual. Must visit early morning." }]
+        }
+      },
+      { 
+        id: "s_chen_1", 
+        name: "Elliot’s Beach (Besant Nagar)", 
+        description: "A popular hangout spot for locals.", 
+        entryFee: "Free",
+        details: {
+          history: "Named after Edward Elliot, Governor of Madras, it forms the end-point of the Marina Beach shore. It is known for its cleanliness and calm environment.",
+          highlights: ["Karl Schmidt Memorial", "Cleanest beach in Chennai", "Great local food stalls"],
+          images: ["https://images.unsplash.com/photo-1590050752117-23a9d7fc2140?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "esr1", user: "Meera", rating: 4, text: "Very calm compared to Marina. Perfect for evening walks." }]
+        }
+      },
+      { 
+        id: "s26", 
+        name: "Kapaleeshwarar Temple", 
+        description: "Ancient Dravidian-style temple.", 
+        entryFee: "Free",
+        details: {
+          history: "A temple of Shiva located in Mylapore, Chennai. The temple was built around the 7th century CE and is an example of Dravidian architecture.",
+          highlights: ["Intricate Gopuram", "Arubathimoovar festival", "Ancient peacock legend"],
+          images: ["https://images.unsplash.com/photo-1605335123329-3712953258c7?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "ksr1", user: "Vijay", rating: 5, text: "The peace inside this temple is unmatched. The architecture is stunning." }]
+        }
+      },
       { id: "s_chen_2", name: "Fort St. George", description: "First English fortress in India.", entryFee: "₹5" },
       { id: "s_chen_3", name: "Government Museum", description: "One of the oldest museums in India.", entryFee: "₹15" },
       { id: "s27", name: "Santhome Basilica", description: "Historic church built over a saint's tomb.", entryFee: "Free" },
@@ -134,8 +173,30 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "r4", destinationId: "10", userName: "Alex T", rating: 5, comment: "Meenakshi Amman Temple is truly breathtaking with its colourful gopurams, detailed sculptures and vibrant atmosphere.", date: "2024-01-18" }
     ],
     spots: [
-      { id: "s7", name: "Meenakshi Amman Temple", description: "Dravidian architecture masterpiece.", entryFee: "Free" },
-      { id: "s8", name: "Thirumalai Nayakkar Palace", description: "17th-century palace complex.", entryFee: "₹10" },
+      { 
+        id: "s7", 
+        name: "Meenakshi Amman Temple", 
+        description: "Dravidian architecture masterpiece.", 
+        entryFee: "Free",
+        details: {
+          history: "Located on the southern bank of the Vaigai River in the temple city of Madurai, it is dedicated to Meenakshi, a form of Parvati, and her consort, Sundareshwarar.",
+          highlights: ["14 gateway towers (gopurams)", "Hall of Thousand Pillars", "Golden Lotus Tank"],
+          images: ["https://images.unsplash.com/photo-1621360841013-c7683c659ec6?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "msr1", user: "Anil", rating: 5, text: "A architectural marvel. You can spend hours looking at the carvings." }]
+        }
+      },
+      { 
+        id: "s8", 
+        name: "Thirumalai Nayakkar Palace", 
+        description: "17th-century palace complex.", 
+        entryFee: "₹10",
+        details: {
+          history: "Built in 1636 by King Thirumalai Nayak, a king of Madurai's Nayaka dynasty. The design and architecture is a blend of Dravidian and Islamic styles.",
+          highlights: ["Massive white pillars", "Sound and light show", "Royal courtyard"],
+          images: ["https://images.unsplash.com/photo-1590733441584-60288869151c?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "tsr1", user: "Kavitha", rating: 4, text: "The pillars are huge! Don't miss the evening light show." }]
+        }
+      },
       { id: "s9", name: "Gandhi Memorial Museum", description: "Museum dedicated to Mahatma Gandhi.", entryFee: "Free" },
       { id: "s_mad_1", name: "Alagar Kovil", description: "Ancient temple dedicated to Lord Vishnu.", entryFee: "Free" },
       { id: "s_mad_2", name: "Vaigai River", description: "Life-giving river of the ancient city.", entryFee: "Free" }
@@ -164,9 +225,42 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "r5", destinationId: "15", userName: "Suresh M", rating: 4, comment: "Nice place to visit one time. Architecture of the palace is awesome and the Palace has beautifully designed. There are beautiful paintings on the ceiling.", date: "2024-01-22" }
     ],
     spots: [
-      { id: "s22", name: "Lalbagh Botanical Garden", description: "Glass house.", entryFee: "₹25" },
-      { id: "s_ben_1", name: "Cubbon Park", description: "Lush space.", entryFee: "Free" },
-      { id: "s_ben_2", name: "Bangalore Palace", description: "Tudor-style.", entryFee: "₹230" },
+      { 
+        id: "s22", 
+        name: "Lalbagh Botanical Garden", 
+        description: "Glass house.", 
+        entryFee: "₹25",
+        details: {
+          history: "Lalbagh, or Lalbagh Botanical Garden, meaning The Red Garden in English, is an old botanical garden in Bengaluru, India. It was first planned and laid out during the rule of Hyder Ali in 1760.",
+          highlights: ["Glass House inspired by Crystal Palace", "Annual Flower Shows", "240-acre landscape"],
+          images: ["https://images.unsplash.com/photo-1598818384782-748587576b97?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "lsr1", user: "Kiran", rating: 5, text: "The flower show is world-class. A green lung for the city." }]
+        }
+      },
+      { 
+        id: "s_ben_1", 
+        name: "Cubbon Park", 
+        description: "Lush space.", 
+        entryFee: "Free",
+        details: {
+          history: "Cubbon Park is a landmark 'lung' area of Bengaluru city, located within the heart of the city in the Central Administrative Area. It was created in 1870 under Major General Richard Sankey.",
+          highlights: ["Bamboo groves", "State Central Library", "Statues of Queen Victoria"],
+          images: ["https://images.unsplash.com/photo-1616422285623-13ff0167295c?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "csr1", user: "Deepa", rating: 4, text: "Perfect for a Sunday morning walk. So much greenery!" }]
+        }
+      },
+      { 
+        id: "s_ben_2", 
+        name: "Bangalore Palace", 
+        description: "Tudor-style.", 
+        entryFee: "₹230",
+        details: {
+          history: "Inspired by Windsor Castle in England, Bangalore Palace was built in 1878. The palace features Tudor-style architecture, with fortified towers, battlements, and turrets.",
+          highlights: ["Tudor-style architecture", "Beautiful wood carvings", "Audio guide included"],
+          images: ["https://images.unsplash.com/photo-1596422846543-75c6fc18a5cb?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "bsr1", user: "Amit", rating: 5, text: "The architecture is stunning. The audio guide is very informative." }]
+        }
+      },
       { id: "s_ben_3", name: "Vidhana Soudha", description: "Legislature seat.", entryFee: "Free" },
       { id: "s_ben_4", name: "Tipu Sultan’s Summer Palace", description: "Teak palace.", entryFee: "₹15" },
       { id: "s_ben_5", name: "ISKCON Temple", description: "Spiritual center.", entryFee: "Free" },
@@ -203,8 +297,30 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "r6", destinationId: "7", userName: "Lakshmi", rating: 5, comment: "The Ooty Government Botanical Garden is a must-visit for nature lovers! It's spread over a vast area, the garden is beautifully maintained with a huge variety of flowers.", date: "2024-01-25" }
     ],
     spots: [
-      { id: "s_ooty_1", name: "Ooty Botanical Garden", description: "Sprawling garden.", entryFee: "₹30" },
-      { id: "s_ooty_2", name: "Ooty Lake", description: "Artificial lake.", entryFee: "₹15" },
+      { 
+        id: "s_ooty_1", 
+        name: "Ooty Botanical Garden", 
+        description: "Sprawling garden.", 
+        entryFee: "₹30",
+        details: {
+          history: "Established in 1848, the Government Botanical Garden in Ooty is one of the oldest botanical gardens in India. It was designed by William Graham McIvor.",
+          highlights: ["20-million-year-old fossilized tree", "Italian Garden", "Fern House"],
+          images: ["https://images.unsplash.com/photo-1591901410904-80327f329971?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "osr1", user: "Suresh", rating: 5, text: "Breathtaking flowers. The fossilized tree is a must-see." }]
+        }
+      },
+      { 
+        id: "s_ooty_2", 
+        name: "Ooty Lake", 
+        description: "Artificial lake.", 
+        entryFee: "₹15",
+        details: {
+          history: "Ooty lake is located in Ooty in the Nilgiris district, Tamil Nadu, India. It is an artificial lake constructed by John Sullivan in 1824.",
+          highlights: ["Boating facilities", "Mini train for kids", "Lakeview views"],
+          images: ["https://images.unsplash.com/photo-1590733441584-60288869151c?auto=format&fit=crop&q=80&w=800"],
+          reviews: [{ id: "olsr1", user: "Anita", rating: 4, text: "Boating is fun, but can get crowded on weekends." }]
+        }
+      },
       { id: "s_ooty_3", name: "Doddabetta Peak", description: "Highest point.", entryFee: "₹10" },
       { id: "s_ooty_4", name: "Rose Garden", description: "Largest rose garden.", entryFee: "₹30" },
       { id: "s_ooty_5", name: "Nilgiri Mountain Railway", description: "Toy train.", entryFee: "Varies" }
