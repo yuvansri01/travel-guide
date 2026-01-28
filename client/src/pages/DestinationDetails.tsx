@@ -64,6 +64,8 @@ export default function DestinationDetails({ params }: { params: { id: string } 
     );
   }
 
+  const [phone, setPhone] = useState("");
+
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
     db.addBooking({
@@ -72,16 +74,18 @@ export default function DestinationDetails({ params }: { params: { id: string } 
       hotelId: selectedHotel,
       userName,
       email,
+      phone,
       checkIn,
       checkOut,
       persons: guests,
     });
     toast({
-      title: "Hotel Booked!",
-      description: `Your stay at ${destination.hotels.find(h => h.id === selectedHotel)?.name} is confirmed.`,
+      title: "Booking Confirmed!",
+      description: `Confirmation sent to ${email} and ${phone}. Your stay at ${destination.hotels.find(h => h.id === selectedHotel)?.name} is confirmed.`,
     });
     setUserName("");
     setEmail("");
+    setPhone("");
     setSelectedHotel("");
   };
 
@@ -422,6 +426,17 @@ export default function DestinationDetails({ params }: { params: { id: string } 
                     <div className="space-y-2">
                       <Label>Full Name</Label>
                       <Input placeholder="John Doe" value={userName} onChange={(e) => setUserName(e.target.value)} required />
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label>Email</Label>
+                        <Input type="email" placeholder="john@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                      </div>
+                      <div className="space-y-2">
+                        <Label>Phone Number</Label>
+                        <Input type="tel" placeholder="+91 98765 43210" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                      </div>
                     </div>
 
                     <Button type="submit" disabled={!selectedHotel} className="w-full h-14 text-lg bg-accent hover:bg-accent/90 shadow-lg shadow-accent/20 rounded-xl font-bold">
