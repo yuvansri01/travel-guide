@@ -1,6 +1,6 @@
 import { useLocation } from "wouter";
 import { useState } from "react";
-import { Star, MapPin, Calendar, Users, ArrowLeft, Hotel, Ticket, Info, History } from "lucide-react";
+import { Star, MapPin, Calendar, Users, ArrowLeft, Hotel, Ticket, Info, History, X } from "lucide-react";
 import { db } from "@/lib/mockData";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -39,6 +39,8 @@ export default function DestinationDetails({ params }: { params: { id: string } 
   const [reviewRating, setReviewRating] = useState(5);
   const [reviewComment, setReviewComment] = useState("");
   const [reviewName, setReviewName] = useState("");
+
+  const [selectedSpot, setSelectedSpot] = useState<any>(null);
 
   if (!destination) {
     return (
@@ -193,20 +195,106 @@ export default function DestinationDetails({ params }: { params: { id: string } 
                             <span className="text-sm font-medium">Entry: {spot.entryFee}</span>
                           </div>
                         </div>
-                        <Button 
-                          variant="outline" 
-                          className="h-fit"
-                          onClick={() => {
-                            const query = encodeURIComponent(`${spot.name}, ${destination.name}, ${destination.state}`);
-                            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
-                          }}
-                        >
-                          Show on Map
-                        </Button>
+                        <div className="flex flex-col gap-2">
+                          {(spot as any).details && (
+                            <Button 
+                              variant="default"
+                              onClick={() => setSelectedSpot(spot)}
+                            >
+                              View Details
+                            </Button>
+                          )}
+                          <Button 
+                            variant="outline" 
+                            className="h-fit"
+                            onClick={() => {
+                              const query = encodeURIComponent(`${spot.name}, ${destination.name}, ${destination.state}`);
+                              window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, "_blank");
+                            }}
+                          >
+                            Show on Map
+                          </Button>
+                        </div>
                       </div>
                     </Card>
                   ))}
                 </div>
+
+                {/* Spot Details Dialog/Popup */}
+                {selectedSpot && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
+                    <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto relative shadow-2xl">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="absolute right-4 top-4 z-10 rounded-full bg-white/20 hover:bg-white/40"
+                        onClick={() => setSelectedSpot(null)}
+                      >
+                        <X className="h-4 w-4" />
+                        <span className="sr-only">Close</span>
+                      </Button>
+                      
+                      <div className="p-0">
+                        {selectedSpot.details?.images && (
+                          <div className="grid grid-cols-2 h-48 md:h-64">
+                            {selectedSpot.details.images.map((img: string, i: number) => (
+                              <img key={i} src={img} className="w-full h-full object-cover" alt={selectedSpot.name} />
+                            ))}
+                          </div>
+                        )}
+                        <div className="p-8 space-y-6">
+                          <div>
+                            <h3 className="text-3xl font-serif font-bold mb-2">{selectedSpot.name}</h3>
+                            <p className="text-muted-foreground leading-relaxed">{selectedSpot.details?.history || selectedSpot.description}</p>
+                          </div>
+
+                          {selectedSpot.details?.highlights && (
+                            <div className="space-y-3">
+                              <h4 className="font-bold text-primary flex items-center gap-2">
+                                <Info className="h-4 w-4" /> Highlights
+                              </h4>
+                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                {selectedSpot.details.highlights.map((h: string, i: number) => (
+                                  <li key={i} className="text-sm flex items-center gap-2">
+                                    <div className="h-1.5 w-1.5 rounded-full bg-accent" />
+                                    {h}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {selectedSpot.details?.reviews && (
+                            <div className="space-y-4 pt-4 border-t">
+                              <h4 className="font-bold flex items-center gap-2">
+                                <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" /> Recent Reviews
+                              </h4>
+                              <div className="space-y-3">
+                                {selectedSpot.details.reviews.map((rev: any) => (
+                                  <div key={rev.id} className="bg-muted/30 p-4 rounded-xl space-y-2">
+                                    <div className="flex justify-between items-center">
+                                      <span className="font-bold text-sm">{rev.user}</span>
+                                      <div className="flex gap-0.5">
+                                        {[...Array(rev.rating)].map((_, i) => (
+                                          <Star key={i} className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                                        ))}
+                                      </div>
+                                    </div>
+                                    <p className="text-sm text-muted-foreground italic">"{rev.text}"</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          <Button className="w-full h-12 rounded-xl font-bold" onClick={() => setSelectedSpot(null)}>
+                            Close Details
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                )}
               </TabsContent>
 
               <TabsContent value="gallery" className="animate-in fade-in slide-in-from-bottom-4">

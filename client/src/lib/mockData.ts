@@ -281,7 +281,24 @@ export const MOCK_DESTINATIONS: Destination[] = [
       { id: "s_tan_1", name: "Brihadeeswarar Temple", description: "Masterpiece.", entryFee: "Free" },
       { id: "s_tan_2", name: "Saraswathi Mahal Library", description: "Ancient library.", entryFee: "Free" },
       { id: "s_tan_3", name: "Thanjavur Palace", description: "Royal residence.", entryFee: "₹50" },
-      { id: "s_tan_4", name: "Schwartz Church", description: "Historic church.", entryFee: "Free" }
+      { 
+        id: "s_tan_4", 
+        name: "Schwartz Church", 
+        description: "Built in 1779 by Raja Serfoji II to honor his teacher Rev. Schwartz, this church is a symbol of religious tolerance. It features a stunning white marble monument by Italian sculptor John Flaxman depicting the missionary on his deathbed.", 
+        entryFee: "Free",
+        details: {
+          history: "Rev. Friedrich Christian Schwartz was a Danish missionary who became a mentor to the Maratha ruler Raja Serfoji II. The church was built as a token of affection and gratitude by the King.",
+          highlights: ["White Marble Monument by John Flaxman", "Historical 18th-century architecture", "Peaceful garden setting"],
+          images: [
+            "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1512916194211-3f2b7f5f7de3?auto=format&fit=crop&q=80&w=800"
+          ],
+          reviews: [
+            { id: "sr1", user: "Vikram R", rating: 5, text: "A hidden gem in Thanjavur. The marble carving of the King holding Schwartz's hand is incredibly moving." },
+            { id: "sr2", user: "Sarah L", rating: 4, text: "Very peaceful and well-maintained. A stark contrast to the busy temple nearby. Must visit for history buffs." }
+          ]
+        }
+      }
     ],
     hotels: []
   },
