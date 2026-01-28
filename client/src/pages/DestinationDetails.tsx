@@ -42,6 +42,19 @@ export default function DestinationDetails({ params }: { params: { id: string } 
 
   const [selectedSpot, setSelectedSpot] = useState<any>(null);
 
+  const [showCustomTourForm, setShowCustomTourForm] = useState(false);
+  const [customTourDetails, setCustomTourDetails] = useState("");
+
+  const handleCustomTourSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Custom Tour Requested!",
+      description: "Our travel experts will contact you within 24 hours.",
+    });
+    setShowCustomTourForm(false);
+    setCustomTourDetails("");
+  };
+
   if (!destination) {
     return (
       <div className="min-h-screen flex items-center justify-center flex-col gap-4">
@@ -419,15 +432,60 @@ export default function DestinationDetails({ params }: { params: { id: string } 
                 </CardContent>
               </Card>
 
-              <div className="p-6 bg-accent/5 rounded-2xl border border-accent/10 flex items-center gap-4">
+              <div 
+                className="p-6 bg-accent/5 rounded-2xl border border-accent/10 flex items-center gap-4 cursor-pointer hover:bg-accent/10 transition-colors"
+                onClick={() => setShowCustomTourForm(true)}
+              >
                 <div className="h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center">
                   <Users className="h-6 w-6 text-accent" />
                 </div>
                 <div>
                   <h5 className="font-bold text-sm">Need a Custom Tour?</h5>
-                  <p className="text-xs text-muted-foreground underline cursor-pointer">Chat with our local experts</p>
+                  <p className="text-xs text-muted-foreground underline">Chat with our local experts</p>
                 </div>
               </div>
+
+              {/* Custom Tour Form Modal */}
+              {showCustomTourForm && (
+                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in">
+                  <Card className="w-full max-w-md shadow-2xl">
+                    <CardHeader className="bg-accent text-white rounded-t-xl">
+                      <CardTitle className="font-serif text-2xl">Plan Your Custom Tour</CardTitle>
+                      <CardDescription className="text-white/80">Tell us what you're looking for and we'll craft the perfect itinerary.</CardDescription>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <form onSubmit={handleCustomTourSubmit} className="space-y-4">
+                        <div className="space-y-2">
+                          <Label>What kind of experience do you want?</Label>
+                          <Textarea 
+                            placeholder="e.g. Cultural immersion, photography tour, spiritual journey..." 
+                            className="min-h-[120px]"
+                            value={customTourDetails}
+                            onChange={(e) => setCustomTourDetails(e.target.value)}
+                            required
+                          />
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                          <Button 
+                            type="button" 
+                            variant="outline" 
+                            onClick={() => setShowCustomTourForm(false)}
+                            className="w-full"
+                          >
+                            Cancel
+                          </Button>
+                          <Button 
+                            type="submit" 
+                            className="w-full bg-accent hover:bg-accent/90"
+                          >
+                            Send Request
+                          </Button>
+                        </div>
+                      </form>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
             </div>
           </div>
         </div>
